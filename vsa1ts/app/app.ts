@@ -21,18 +21,18 @@
             'vendor',
             'nwind'
         ])
-        .config([
-            '$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
-                $locationProvider.html5Mode(true);
-                $routeProvider
-                    .when('/',
-                    {
-                        template: '<hello></hello>'
-                    })
-                    .when('/customers/',
-                    {
-                        template: '<customers></customers>'
-                    })
+    .config([
+        '$locationProvider', '$routeProvider',($locationProvider, $routeProvider) => {
+            $locationProvider.html5Mode(true);
+            $routeProvider
+                .when('/',
+                {
+                    template: '<hello></hello>'
+                })
+                .when('/customers',
+                {
+                    template: '<customers></customers>'
+                })
 /*
                 .when('/orders/',
                 {
