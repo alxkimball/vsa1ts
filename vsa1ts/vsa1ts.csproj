@@ -2562,7 +2562,6 @@
     <TypeScriptCompile Include="app\hello\hello.controller.ts" />
     <TypeScriptCompile Include="app\hello\hello.module.ts" />
     <TypeScriptCompile Include="app\models\customer.model.ts" />
-    <TypeScriptCompile Include="app\models\models.module.ts" />
     <TypeScriptCompile Include="app\models\order.model.ts" />
     <TypeScriptCompile Include="app\orders\orders.module.ts" />
     <TypeScriptCompile Include="app\services\customer.service.ts" />
