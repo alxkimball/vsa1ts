@@ -15,7 +15,8 @@
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
-./vsa1ts/app/**/*.js
+vsa1ts/app/**/*.js
+vsa1ts/app/**/*.map
 
 # Build results
 [Dd]ebug/

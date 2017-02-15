@@ -68,6 +68,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\data\customers.json" />
+    <Content Include="app\data\orders.json" />
+    <Content Include="app\hello\hello.template.html" />
     <Content Include="packages.config" />
     <Content Include="package.json" />
     <Content Include="tsconfig.json" />
@@ -77,7 +80,6 @@
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\vsa1ts.dll.config" />
-    <Content Include="app\app.js.map" />
     <Content Include="node_modules\array-union\license" />
     <Content Include="node_modules\array-union\package.json" />
     <Content Include="node_modules\array-union\readme.md" />
@@ -258,8 +260,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\app.js" />
-    <Content Include="app\hello\hello.template.html" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="bin\roslyn\csc.exe" />
@@ -1994,6 +1994,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\orders\" />
     <Folder Include="assets\stylesheets\" />
     <Folder Include="dist\" />
     <Folder Include="obj\Debug\TempPE\" />

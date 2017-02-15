@@ -10,7 +10,7 @@ module customers {
 
     }
 
-    class CustomersController implements ICustomersController {
+    export class CustomersController implements ICustomersController {
         static $inject = ['CustomersService'];
 
         customers: models.ICustomerModel[];
