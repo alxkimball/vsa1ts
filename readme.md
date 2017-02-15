@@ -6,8 +6,12 @@ This is a simple demo using static data from the famous Northwind database to di
 
 ## Environment
 * Layout and UI will utilize angular-material 1.x
-* angular version is 1.x 
+ * current version is 1.1.3
+* angular framework will utilize 1.x
+ * current version is 1.6.2
 * Typescript version will be 2.x
+ * current version is 2.1.6
+* build will occur through both Visual Studio tsconfig and also gulp
 
 ## Current Status
 * Repo created and ignore file setup
