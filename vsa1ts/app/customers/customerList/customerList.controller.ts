@@ -38,7 +38,7 @@
 
     }
     angular
-        .module('app.customer')
+        .module('customers')
         .controller('CustomerListController', CustomerListController);
 
 }

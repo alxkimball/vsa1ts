@@ -31,7 +31,7 @@
                 {
                     template: '<hello></hello>'
                 })
-                .when('/customers/',
+                .when('/customers',
                 {
                     template: '<customers></customers>'
                 })
