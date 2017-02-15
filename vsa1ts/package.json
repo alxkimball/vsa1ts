@@ -1,0 +1,26 @@
+{
+  "name": "vsa1ts",
+  "version": "1.0.0",
+  "description": "angular 1.x and typescript with Visual Studio",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angular",
+    "typescript"
+  ],
+  "author": "Dan Marquette",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-tsc": "^1.2.6",
+    "typescript": "^2.1.6"
+  },
+  "dependencies": {
+    "@types/angular": "^1.6.5"
+  }
+}

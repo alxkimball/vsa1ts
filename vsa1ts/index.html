@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html ng-app="app" ng-cloak >
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>angularJS 1.x w/TypeScript</title>
+    <base href="/" />
+</head>
+<body >
+
+    <ng-view></ng-view>
+
+    <script src="./node_modules/angular/angular.min.js" ></script>
+    <script src="./node_modules/angular-route/angular-route.min.js" ></script>
+
+    <!--application modules-->
+    <script src="./app/app.js"></script>
+
+    <script src="./app/hello/hello.module.js"></script>
+    <script src="./app/hello/hello.component.js"></script>
+    <script src="./app/hello/hello.controller.js"></script>
+    <script src="./app/customers/customers.module.js"></script>
+
+    <!--models-->
+    <script src="./app/models/models.module.js"></script>
+    <script src="./app/models/customer.model.js"></script>
+
+    <!--page objects  -->
+    <script src="./app/customers/customers.module.js"></script>
+    <script src="./app/customers/customers.component.js"></script>
+    <script src="./app/customers/customers.controller.js"></script>
+
+    <!--services-->
+    <script src="app/services/services.module.js"></script>
+
+</body>
+</html>
+
