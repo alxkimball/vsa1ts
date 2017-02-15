@@ -12,7 +12,6 @@
         [
             'hello',
             'customers',
-            'models',
             'services'
         ]
     );
