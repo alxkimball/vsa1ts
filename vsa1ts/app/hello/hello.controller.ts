@@ -4,6 +4,7 @@ module hello {
 
     export interface IHelloController {
 
+        name: string;
     }
 
     class HelloController implements IHelloController {
@@ -16,8 +17,8 @@ module hello {
 
         // initialization logic runs after bindings complete
         $onInit(): void {
+//            this.name = "World";
             this.name = "TLC Brown Bag Attendees";
-
         }
     }
 

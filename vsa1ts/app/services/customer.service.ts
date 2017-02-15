@@ -2,14 +2,14 @@
 module services {
     'use strict';
 
-    export interface ICustomersService {
+    export interface ICustomerService {
         getCustomers(): ng.IPromise<models.ICustomerModel[]>;
         getCustomer(customerId: string): ng.IPromise<models.ICustomerModel>;
         saveCustomer(customer: models.ICustomerModel): ng.IPromise<models.ICustomerModel>;
         deleteCustomer(customer: models.ICustomerModel): ng.IPromise<models.ICustomerModel>;
     }
 
-    export class CustomersService implements ICustomersService {
+    export class CustomerService implements ICustomerService {
         static $inject = ['$http', '$q'];
         host: string;
 
@@ -19,7 +19,15 @@ module services {
 
         getCustomers(): ng.IPromise<models.ICustomerModel[]>{
             var def = this.$q.defer();
-            var customers: models.CustomerModel[] = [];
+            var customers: models.ICustomerModel[] = [];
+
+            this.$http.get<models.ICustomerModel[]>('../data/customers.json', {cache: true})
+                .then((data) => {
+                    def.resolve(data);
+                })
+                .catch(() => {
+                    def.reject('Failed to get customers');
+                });
 
             return def.promise;
         }
@@ -44,5 +52,5 @@ module services {
     }
     angular
         .module('services')
-        .service('CustomersService', CustomersService);
+        .service('CustomerService', CustomerService);
 }

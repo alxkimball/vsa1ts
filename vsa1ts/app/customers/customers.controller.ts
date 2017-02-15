@@ -7,7 +7,6 @@ module customers {
         customer: models.ICustomerModel;
         loadCustomers(): void;
         loadCustomer(number): void;
-
     }
 
     export class CustomersController implements ICustomersController {
@@ -16,7 +15,7 @@ module customers {
         customers: models.ICustomerModel[];
         customer: models.ICustomerModel = null;
 
-        constructor(private customerService: services.ICustomersService) {
+        constructor(private customerService: services.ICustomerService) {
             
         }
 

@@ -1,14 +1,30 @@
 // app.ts
-/// reference path="../node_modules/@types/angular/index.d.ts";
 
 ((): void => {
 
+    angular.module('vendor',
+        [
+            'ngRoute',
+            'ngMaterial'
+        ]);
 
-    angular.module('app', ['ngRoute', 'hello', 'customers', 'models'])
+    angular.module('nwind',
+        [
+            'hello',
+            'customers',
+            'models',
+            'services'
+        ]
+    );
+
+    angular.module('app',
+        [
+            'vendor',
+            'nwind'
+        ])
 
     .config([
-        '$locationProvider', '$routeProvider',
-        ($locationProvider: ng.ILocationProvider, $routeProvider: any) => {
+        '$locationProvider', '$routeProvider',($locationProvider, $routeProvider) => {
             $locationProvider.html5Mode(true);
             $routeProvider
                 .when('/',

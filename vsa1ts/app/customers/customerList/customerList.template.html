@@ -1,0 +1,38 @@
+﻿<!--Design change applied starting here-->
+<div flex layout="row">
+    <div layout="column">
+        <md-sidenav class="md-whiteframe-8dp"
+                    md-component-id="left"
+                    md-is-locked-open="$mdMedia('gt-sm')">
+            <div class="md-inline-form">
+                <!-- Top toolbar -->
+                <md-toolbar layout="column"
+                            class="md-medium-tall md-whiteframe-2dp"
+                            md-sticky
+                            layout-align="center none">
+                    Customers
+                </md-toolbar>
+                <!-- List content -->
+                <md-content class="">
+                    <md-list>
+                        <md-list-item class="md-2-line"
+                                      ng-repeat="customer in $ctrl.customers"
+                                      ng-click="$ctrl.showDetail(customer.id)"
+                                      ng-class="{'active':customer.id == $ctrl.selectedcustomerId}">
+
+                            <div class="md-list-item-text" layout="row" layout-wrap>
+                                <div flex="100">
+                                    <h3>{{customer.companyName}}, {{customer.contactName}} - {{customer.contactTitle}} </h3>
+                                </div>
+                            </div>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+                <!-- Footer toolbar -->
+                <md-toolbar layout="row" md-sticky>
+                </md-toolbar>
+            </div>
+        </md-sidenav>
+    </div>
+</div>
