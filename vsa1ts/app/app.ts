@@ -36,6 +36,7 @@
                     {
                         template: '<orders></orders>'
                     })
+
                     .otherwise({ redirectTo: '/' });
             }
         ])
