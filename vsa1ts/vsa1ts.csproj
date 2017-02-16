@@ -73,6 +73,7 @@
     <Content Include="app\data\customers.json" />
     <Content Include="app\data\orders.json" />
     <Content Include="app\hello\hello.template.html" />
+    <Content Include="app\orders\orders.template.html" />
     <Content Include="assets\images\angularTypescriptLogo.png" />
     <Content Include="node_modules\angular-animate\angular-animate.js" />
     <Content Include="node_modules\angular-animate\angular-animate.min.js" />
@@ -2682,6 +2683,8 @@
     <TypeScriptCompile Include="app\hello\hello.module.ts" />
     <TypeScriptCompile Include="app\models\customer.model.ts" />
     <TypeScriptCompile Include="app\models\order.model.ts" />
+    <TypeScriptCompile Include="app\orders\orders.component.ts" />
+    <TypeScriptCompile Include="app\orders\orders.controller.ts" />
     <TypeScriptCompile Include="app\orders\orders.module.ts" />
     <TypeScriptCompile Include="app\services\customer.service.ts" />
     <TypeScriptCompile Include="app\services\order.service.ts" />

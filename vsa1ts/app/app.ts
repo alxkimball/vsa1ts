@@ -21,8 +21,7 @@
             'vendor',
             'nwind'
         ])
-        .config([
-            '$locationProvider', '$routeProvider', ($locationProvider: ng.ILocationProvider, $routeProvider) => {
+        .config(['$locationProvider', '$routeProvider', ($locationProvider: ng.ILocationProvider, $routeProvider) => {
                 $locationProvider.html5Mode(true);
                 $routeProvider
                     .when('/',
@@ -33,12 +32,10 @@
                     {
                         template: '<customers></customers>'
                     })
-/*
-                .when('/orders/',
-                {
-                    template: '<orders></orders>'
-                })
-*/
+                    .when('/orders/',
+                    {
+                        template: '<orders></orders>'
+                    })
                     .otherwise({ redirectTo: '/' });
             }
         ])
