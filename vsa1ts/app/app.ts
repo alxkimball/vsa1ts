@@ -22,7 +22,7 @@
             'nwind'
         ])
         .config([
-            '$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
+            '$locationProvider', '$routeProvider', ($locationProvider: ng.ILocationProvider, $routeProvider) => {
                 $locationProvider.html5Mode(true);
                 $routeProvider
                     .when('/',
