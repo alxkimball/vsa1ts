@@ -15,8 +15,8 @@
             'orders',
             'services'
         ]);
-
-    angular.module('app',
+    
+    angular.module('bbag',
         [
             'vendor',
             'nwind'

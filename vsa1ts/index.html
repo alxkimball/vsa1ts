@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html ng-app="app" ng-cloak >
+<html ng-app="bbag" ng-cloak >
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,19 +8,19 @@
     <base href="/" />
 </head>
 <body >
-
+    
     <ng-view></ng-view>
     
     
     <!--stylesheets-->
     <link rel="stylesheet" href="./node_modules/angular-material/angular-material.min.css" />
 
-
     <!--3rd party modules-->
     <script src="./node_modules/jquery/dist/jquery.min.js" ></script>
     <script src="./node_modules/angular/angular.min.js" ></script>
     <script src="./node_modules/angular-route/angular-route.min.js" ></script>
     <script src="./node_modules/angular-animate/angular-animate.min.js" ></script>
+    <script src="./node_modules/angular-sanitize/angular-sanitize.min.js" ></script>
     <script src="./node_modules/angular-aria/angular-aria.min.js" ></script>
     <script src="./node_modules/angular-material/angular-material.min.js" ></script>
     
@@ -36,7 +36,7 @@
     <script src="./app/models/customer.model.js"></script>
     <script src="./app/models/order.model.js"></script>
 
-    <!--page objects  -->
+    <!--page objects-->
     <script src="./app/hello/hello.component.js"></script>
     <script src="./app/hello/hello.controller.js"></script>
     <script src="./app/customers/customers.component.js"></script>

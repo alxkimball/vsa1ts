@@ -22,5 +22,5 @@ module orders {
 
     angular
         .module('orders')
-        .controller('HelloController', OrdersController);
+        .controller('OrdersController', OrdersController);
 }

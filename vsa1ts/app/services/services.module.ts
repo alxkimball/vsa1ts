@@ -1,4 +1,4 @@
 ﻿//
 // module definition for services pages
 
-angular.module('services', []);
+angular.module('services', ['ngSanitize']);

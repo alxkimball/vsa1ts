@@ -1,12 +1,14 @@
-<div layout="column" layout-padding  layout-margin align="center">
-    <div flex>
-        <input type="text"
-               autofocus
-               ng-model="$ctrl.name"
-               placeholder="First Name" />
-        <h1>Hello {{$ctrl.name}}</h1>
-    </div>
-    <div flex>
-        <img src="./assets/images/angularTypescriptLogo.png" />
-    </div>
+<div layout="column" layout-padding align="center">
+    <md-toolbar>
+        <div flex>
+            <input type="text"
+                   autofocus
+                   ng-model="$ctrl.name"
+                   placeholder="First Name" />
+            <h1 class="md-accent">Hello {{$ctrl.name}}</h1>
+        </div>
+        <div flex>
+            <img src="./assets/images/angularTypescriptLogo.png" />
+        </div>
+    </md-toolbar>
 </div>

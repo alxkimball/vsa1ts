@@ -10,25 +10,22 @@ module services {
     }
 
     export class CustomerService implements ICustomerService {
-        static $inject = ['$http', '$q'];
+        static $inject = ['$http', '$q','$sce','$location'];
         host: string;
 
-        constructor(private $http: ng.IHttpService, private $q: ng.IQService){
+        constructor(private $http: ng.IHttpService, private $q: ng.IQService, private $location: ng.ILocationProvider) {
             
         }
 
         getCustomers(): ng.IPromise<models.ICustomerModel[]>{
             var def = this.$q.defer();
-            var customers: models.ICustomerModel[] = [];
-
-            this.$http.get<models.ICustomerModel[]>('../data/customers.json', {cache: true})
+            this.$http.get<models.ICustomerModel[]>('/data/customers.json', {cache: true})
                 .then((data) => {
                     def.resolve(data);
                 })
                 .catch(() => {
                     def.reject('Failed to get customers');
                 });
-
             return def.promise;
         }
         getCustomer(customerId: string): ng.IPromise<models.ICustomerModel>{

@@ -1,17 +1,17 @@
 ﻿<div flex layout="row" ng-cloak>
     <div>
         <customer-list customers="$ctrl.customers"
-                       on-selected="$ctrl.loadCustomer(selectedCustomerId)">
+                        on-selected="$ctrl.loadCustomer(selectedCustomerId)">
         </customer-list>
     </div>
-<!--
-    <div flex>
-        <md-content>
-            <customer-detail customer="$ctrl.customer"
-                             on-save="$ctrl.saveCustomer(customerToSave)"
-                             on-delete="$ctrl.deleteCustomer(customerToDelete)">
-            </customer-detail>
-        </md-content>
-    </div>
--->
+    <!--
+        <div flex>
+            <md-content>
+                <customer-detail customer="$ctrl.customer"
+                                    on-save="$ctrl.saveCustomer(customerToSave)"
+                                    on-delete="$ctrl.deleteCustomer(customerToDelete)">
+                </customer-detail>
+            </md-content>
+        </div>
+    -->
 </div>
