@@ -1,4 +1,3 @@
-
 module services {
     'use strict';
 
@@ -10,20 +9,25 @@ module services {
     }
 
     export class CustomerService implements ICustomerService {
-        static $inject = ['$http', '$q','$sce','$location'];
+        static $inject = ['$http', '$q','$location','$sce'];
         host: string;
 
-        constructor(private $http: ng.IHttpService, private $q: ng.IQService, private $location: ng.ILocationProvider) {
-            
+        constructor(private $http: ng.IHttpService, private $q: ng.IQService,
+                    private $location: ng.ILocationService, private $sce: ng.ISCEService) {
+            this.host = $location.host();
         }
 
         getCustomers(): ng.IPromise<models.ICustomerModel[]>{
             var def = this.$q.defer();
-            this.$http.get<models.ICustomerModel[]>('/data/customers.json', {cache: true})
-                .then((data) => {
-                    def.resolve(data);
+            this.$location.path('/app/data/customers.json');
+            var url = this.$sce.trustAsResourceUrl(this.$location.absUrl());
+
+            this.$http.get<models.ICustomerModel[]>(url, { cache: true })
+                .then((results) => {
+                    def.resolve(results.data['Customers']);
                 })
-                .catch(() => {
+                .catch((error) => {
+                    var message = error;
                     def.reject('Failed to get customers');
                 });
             return def.promise;

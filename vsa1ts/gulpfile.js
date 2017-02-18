@@ -1,4 +1,5 @@
-﻿/* File: gulpfile.js */
+/// <binding BeforeBuild='clean' />
+/* File: gulpfile.js */
 
 var gulp = require('gulp'),
     del = require('del'),

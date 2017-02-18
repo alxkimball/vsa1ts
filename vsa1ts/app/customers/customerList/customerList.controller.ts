@@ -1,13 +1,14 @@
-﻿module customers {
+﻿
+module customers {
 
     'use strict';
     export interface ICustomerListControllerBindings {
         customers: models.ICustomerModel;
-        onSelected(customerId: number): void;
+        onSelected(customerId: string): void;
     }
 
     export interface ICustomerListController extends ICustomerListControllerBindings {
-        showDetail(customerId: number);
+        showOrders(customerId: number);
         selectedCustomerId: number;
         $onInit(): void;
     }
@@ -23,7 +24,7 @@
         }
 
         $onInit(): void {
-
+            var list = this.customers;
         }
 
         $onChanges(changesObj: any): void {
@@ -31,7 +32,7 @@
         }
 
         // bubble selected customerId up to parent to display customer detail
-        showDetail(customerId: number) {
+        showOrders(customerId: number) {
             this.selectedCustomerId = customerId;
             this.onSelected({ selectedCustomerId: customerId });
         }

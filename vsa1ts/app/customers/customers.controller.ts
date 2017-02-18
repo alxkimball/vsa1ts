@@ -45,6 +45,7 @@ module customers {
             });
         }
 
+/*
         // save current customer record
         saveCustomer(customer: models.CustomerModel): void {
 
@@ -68,6 +69,7 @@ module customers {
                 console.log(error);
             });
         }
+*/
 
     }
 

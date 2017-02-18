@@ -3310,6 +3310,7 @@
     <Content Include="node_modules\angular-sanitize\LICENSE.md" />
     <Content Include="node_modules\angular-sanitize\package.json" />
     <Content Include="node_modules\angular-sanitize\README.md" />
+    <Content Include="typings.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
