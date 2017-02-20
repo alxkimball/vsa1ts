@@ -1,7 +1,17 @@
 ﻿<md-toolbar>
     <div class="md-toolbar-tools" layout="column" layout-padding layout-margin align="center">
         <div flex>
-            <h1>{{$ctrl.message}}</h1>
+            <h1>Orders Found: {{$ctrl.orderCount}}</h1>
         </div>
     </div>
 </md-toolbar>
+<div flex layout="column" ng-cloak>
+    <div>
+        <order-list orders="$ctrl.orders"
+                    on-selected="$ctrl.loadDetail(selectedOrderId)">
+        </order-list>
+    </div>
+    <div flex ng-if="$ctrl.orderCount > 0">
+        <order-detail order="$ctrl.order"></order-detail>
+    </div>
+</div>

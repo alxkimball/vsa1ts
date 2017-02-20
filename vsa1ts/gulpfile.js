@@ -3,6 +3,8 @@
 
 var gulp = require('gulp'),
     del = require('del'),
+    sass = require("gulp-sass"),
+    autoprefixer = require('gulp-autoprefixer'),
     tsc = require('gulp-tsc');
 
 
@@ -32,8 +34,21 @@ var config = {
 // Watch for changes in TypeScript files.  On save, compile and build JavaScript to output folders.
 gulp.task('default',
     function () {
-        return gulp.watch(paths.app + '**/*.ts', paths.stylesheets + '**/*.scss', ['buildTS']);
+        return gulp.watch(paths.app + '**/*.ts', ['buildTS']);
     });
+
+// Compile SCSS to CSS
+gulp.task('buildCSS',
+    function (cb) {
+        return gulp.src(paths.stylesheets + "*.scss")
+            .pipe(autoprefixer({
+                browsers: ['last 4 versions'],
+                cascade: false
+            }))
+            .pipe(sass({ outputStyle: 'expanded' }))
+            .pipe(gulp.dest(paths.stylesheets), cb);
+    });
+
 
 gulp.task('buildTS',
     function (cb) {

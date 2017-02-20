@@ -11,9 +11,9 @@
     angular.module('nwind',
         [
             'hello',
+            'services',
             'customers',
-            'orders',
-            'services'
+            'orders'
         ]);
     
     angular.module('bbag',
@@ -32,11 +32,6 @@
                     {
                         template: '<customers></customers>'
                     })
-                    .when('/orders/',
-                    {
-                        template: '<orders></orders>'
-                    })
-
                     .otherwise({ redirectTo: '/' });
             }
         ])

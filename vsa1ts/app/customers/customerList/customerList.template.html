@@ -1,38 +1,48 @@
-﻿<pre>{{ $ctrl.customers | json }}</pre>
-<!--<div flex layout="row">
-    <div layout="column">
-        <md-sidenav class="md-whiteframe-8dp"
-                    md-component-id="left"
-                    md-is-locked-open="$mdMedia('gt-xs')">
-            <div class="md-inline-form">
-                $1$ Top toolbar #1#
-                <md-toolbar layout="column"
-                            class="md-media-sm md-whiteframe-2dp"
-                            md-sticky
-                            layout-align="center none">
-                    Customers
-                </md-toolbar>
-                $1$ List content #1#
-                <md-content class="">
-                    <md-list>
-                        <md-list-item class="md-2-line"
-                                      ng-repeat="customer in $ctrl.customers"
-                                      ng-click="$ctrl.showDetail(customer.id)"
-                                      ng-class="{'active':customer.id == $ctrl.selectedcustomerId}">
+﻿    <div flex layout="row">
+        <div layout="column">
+            <md-sidenav class="md-whiteframe-8dp"
+                        md-component-id="left"
+                        md-is-locked-open="$mdMedia('gt-xs')">
+                <div class="md-inline-form">
+                    <!-- Top toolbar -->
+                    <md-toolbar layout="column"
+                                class="md-media-sm md-whiteframe-2dp"
+                                md-sticky
+                                layout-align="center center">
+                        Customers
+                    </md-toolbar>
+                    <!-- List content -->
+                    <md-content class="">
+                        <md-list>
+                            <md-list-item class="md-3-line"
+                                          ng-repeat="customer in $ctrl.customers"
+                                          ng-click="$ctrl.showOrders(customer.Id)"
+                                          ng-class="{'active':customer.id == $ctrl.selectedcustomerId}">
 
-                            <div class="md-list-item-text" layout="row" layout-wrap>
-                                <div flex="100">
-                                    <h3>{{customer.companyName}}, {{customer.contactName}} - {{customer.contactTitle}} </h3>
+                                <div class="md-list-item-text" layout="row" layout-wrap>
+                                    <div flex="100">
+                                        <h3>{{customer.CompanyName}}</h3>
+                                    </div>
+                                    <div flex="100">
+                                        <h4>{{customer.ContactName}}, {{customer.ContactTitle}}</h4>
+                                    </div>
+                                    <div flex="100">
+                                        <h4>{{customer.City}} {{customer.Country}}</h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <md-divider ng-if="!$last"></md-divider>
-                        </md-list-item>
-                    </md-list>
-                </md-content>
-                $1$ Footer toolbar #1#
-                <md-toolbar layout="row" md-sticky>
-                </md-toolbar>
-            </div>
-        </md-sidenav>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+                    <!-- Footer toolbar -->
+                    <md-toolbar layout="row" md-sticky>
+                    </md-toolbar>
+                </div>
+            </md-sidenav>
+        </div>
     </div>
-</div>-->
+<!--
+<md-content>
+    <pre>{{ $ctrl.customers | json }}</pre>
+</md-content>
+-->

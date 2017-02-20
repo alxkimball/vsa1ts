@@ -1,12 +1,10 @@
 ﻿<div flex layout="row" ng-cloak>
-    <div>
+    <div flex="20">
         <customer-list customers="$ctrl.customers"
-                       on-selected="$ctrl.loadCustomer(selectedCustomerId)">
+                       on-selected="$ctrl.loadCustomerId(selectedCustomerId)">
         </customer-list>
     </div>
     <div flex>
-        <md-content>
-            <orders customer="$ctrl.customer.id"></orders>
-        </md-content>
+        <orders customer-id="$ctrl.customerId"></orders>
     </div>
 </div>

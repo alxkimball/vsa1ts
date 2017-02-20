@@ -4,16 +4,16 @@ module customers {
 
     export interface ICustomersController {
         customers: models.ICustomerModel[];
-        customer: models.ICustomerModel;
         loadCustomers(): void;
-        loadCustomer(number): void;
+        loadCustomerId(string): void;
+        customerId: string;
     }
 
     export class CustomersController implements ICustomersController {
         static $inject = ['CustomerService'];
 
         customers: models.ICustomerModel[];
-        customer: models.ICustomerModel = null;
+        customerId: string = '';
 
         constructor(private customerService: services.ICustomerService) {
             
@@ -25,8 +25,9 @@ module customers {
             this.loadCustomers();
         }
 
-        // putting the actual load in its own method in case we want to launch with a "refresh" button
+        // put the load in its own method in case you want to launch with a "refresh" button
         loadCustomers(): void {
+            this.customerId = '';
             this.customerService.getCustomers()
                 .then((result) => {
                     this.customers = result;
@@ -35,42 +36,10 @@ module customers {
             });
         }
 
-        // load single customer based upon selectedId from list
-        loadCustomer(customerId: string): void {
-            this.customerService.getCustomer(customerId)
-                .then((result) => {
-                    this.customer = result;
-                }).catch(error => {
-                console.log(error);
-            });
+        // load customerId based upon selectedId from list
+        loadCustomerId(customerId: string): void {
+            this.customerId = customerId;
         }
-
-/*
-        // save current customer record
-        saveCustomer(customer: models.CustomerModel): void {
-
-            // call service to save record
-            this.customerService.saveCustomer(customer).then((result) => {
-                // update detail region and reload list with new customer
-                this.customer = result;
-                this.loadCustomers();
-                }).catch(error => {
-                console.log(error);
-            });
-        }
-
-        // delete currently displayed customer
-        deleteCandidate(customer: models.CustomerModel): void {
-            this.customerService.deleteCustomer(customer).then(() => {
-                // Clear deleted customer and Reload customer list
-                this.customer = null;
-                this.loadCustomers();
-                }).catch(error => {
-                console.log(error);
-            });
-        }
-*/
-
     }
 
     angular

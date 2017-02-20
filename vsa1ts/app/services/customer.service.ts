@@ -19,10 +19,9 @@ module services {
 
         getCustomers(): ng.IPromise<models.ICustomerModel[]>{
             var def = this.$q.defer();
-            this.$location.path('/app/data/customers.json');
-            var url = this.$sce.trustAsResourceUrl(this.$location.absUrl());
+            var datapath = 'http://northwind.servicestack.net/customers.json';
 
-            this.$http.get<models.ICustomerModel[]>(url, { cache: true })
+            this.$http.get<models.ICustomerModel[]>(datapath, { cache: true })
                 .then((results) => {
                     def.resolve(results.data['Customers']);
                 })
