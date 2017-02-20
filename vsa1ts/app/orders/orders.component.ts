@@ -8,7 +8,9 @@
         public templateUrl: any;
 
         constructor() {
-            this.bindings = {};
+            this.bindings = {
+                customerId: '<'
+            };
             this.controller = 'OrdersController';
             this.templateUrl = '/app/orders/orders.template.html';
         }
