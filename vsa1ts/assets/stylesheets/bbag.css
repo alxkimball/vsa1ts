@@ -5,3 +5,20 @@ body {
 #orderlist {
   height: 440px;
 }
+
+.page-fill {
+  height: calc(100vh - 64px);
+  overflow: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .page-fill {
+    height: calc(100vh - 56px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-fill {
+    height: auto;
+  }
+}

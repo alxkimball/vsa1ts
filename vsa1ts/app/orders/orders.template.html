@@ -5,7 +5,10 @@
         </div>
     </div>
 </md-toolbar>
-<div flex layout="column" ng-cloak>
+<!-- .page-fill is currently set to use the remainder of the viewport height minus 
+the standard toolbar, the media queries take into consideration that the toolbar 
+ shrinks at smaller size -->
+<div flex layout="column" ng-cloak class="page-fill">
     <div>
         <order-list orders="$ctrl.orders"
                     on-selected="$ctrl.loadDetail(selectedOrderId)">
