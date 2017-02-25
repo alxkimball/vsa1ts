@@ -7,7 +7,7 @@
 }
 
 .page-fill {
-   height: calc(100vh - 64px);
+   height: calc(100vh - 80px);
    overflow: auto;
 }
 
@@ -21,4 +21,16 @@
    .page-fill {
        height: auto;
    }
+}
+
+.full-page {
+    height: 100vh;
+    overflow: auto;
+    md-content {
+        height: calc(100vh - 128px);
+    }
+}
+
+.sidenav-size {
+    width: 320px;
 }

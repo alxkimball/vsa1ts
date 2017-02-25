@@ -15,8 +15,7 @@ module orders {
 
         order: models.IOrderModel;
 
-        constructor() {
-        }
+        constructor() {;}
 
         $onInit(): void {
             
@@ -25,8 +24,12 @@ module orders {
         $onChanges(changesObj: any): void {
             if (changesObj.order && changesObj.order.currentValue) {
                 this.order = changesObj.order.currentValue;
+                //this.order.orderDate = this.formatJsonDate(this.order.orderDate);
             }
         }
+        formatJsonDate(jsonDate):string {
+            return (new Date(parseInt(jsonDate.substr(6)))).toString();
+        };
 
     }
     angular

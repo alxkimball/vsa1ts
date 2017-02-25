@@ -35,7 +35,7 @@ module services {
 
             this.$http.get<models.IOrderModel>(datapath, { cache: true })
                 .then((data) => {
-                    def.resolve(data.data['Results']);
+                    def.resolve(data.data['Results'][0]);   // returns an array, just grab [0]
                 })
                 .catch(() => {
                     def.reject('Failed to get order detail data');

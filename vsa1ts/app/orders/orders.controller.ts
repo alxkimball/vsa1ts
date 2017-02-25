@@ -40,6 +40,7 @@ module orders {
 
         // load single customer based upon selectedId from list
         loadOrders(customerId: string): void {
+            this.order = null;
             this.orderService.getOrders(customerId)
                 .then((results) => {
                     this.orders = results;
@@ -53,10 +54,30 @@ module orders {
             this.orderNumber = orderId;
             this.orderService.getOrderDetail(orderId)
                 .then((results) => {
-                    this.order = results;
+                    this.order = this.populateOrderModel(results);
                 }).catch(error => {
                     console.log(error);
                 });
+        }
+
+        populateOrderModel(results: models.IOrderModel): models.IOrderModel {
+            var localOrder: models.IOrderModel = new models.OrderModel();
+            
+            localOrder.id = results['Id'];
+            localOrder.customerId = results['CustomerId'];
+            localOrder.employeeId = results['EmployeeId'];
+            localOrder.orderDate = new Date(parseInt(results['OrderDate'].substr(6))).toLocaleDateString();
+            localOrder.requiredDate = new Date(parseInt(results['RequiredDate'].substr(6))).toLocaleDateString();
+            localOrder.shippedDate = new Date(parseInt(results['ShippedDate'].substr(6))).toLocaleDateString();
+            localOrder.shipVia = results['ShipVia'];
+            localOrder.freight = results['Freight'];
+            localOrder.shipName = results['ShipName'];
+            localOrder.shipAddress = results['ShipAddress'];
+            localOrder.shipCity = results['ShipCity'];
+            localOrder.shipPostalCode = results['ShipPostalCode'];
+            localOrder.shipCountry = results['ShipCountry'];
+            
+            return localOrder;
         }
     }
 

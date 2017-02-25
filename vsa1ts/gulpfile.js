@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='clean' />
+/*  /// <binding BeforeBuild='clean' />  */
 /* File: gulpfile.js */
 
 var gulp = require('gulp'),
@@ -18,8 +18,6 @@ var paths = {
 paths.app = paths.webroot + 'app/';
 paths.stylesheets = paths.webroot + 'assets/stylesheets/';
 paths.typescript = paths.webroot + 'typings/app/**/*.ts';
-
-console.log('paths = ' + paths);
 
 var config = {
     js: {

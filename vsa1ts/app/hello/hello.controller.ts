@@ -8,17 +8,21 @@ module hello {
     }
 
     class HelloController implements IHelloController {
-
+        static $inject = ['$location'];
         name: string;
+        cardExpanded: boolean = false;
 
-        constructor() {
-            
+        constructor(private $location: ng.ILocationService) {          
         }
 
         // initialization logic runs after bindings complete
         $onInit(): void {
-            this.name = "World";
-//            this.name = "TLC Brown Bag Attendees";
+            this.name = "World!";
+            //this.name = "TLC Brown Bag Attendees";
+        }
+
+        goNorthwind(): void {
+            this.$location.path('/customers');
         }
     }
 
