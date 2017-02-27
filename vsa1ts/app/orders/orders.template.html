@@ -8,14 +8,13 @@
 <!-- .page-fill is currently set to use the remainder of the viewport height minus
 the standard toolbar, the media queries take into consideration that the toolbar
  shrinks at smaller size -->
-<div flex layout="column" ng-cloak class="page-fill">
-    <div flex="50" style="overflow:auto">
+<div flex ng-cloak class="page-fill" style="display:flex; flex-direction:column;">
+    <div style="overflow:auto; flex: 0 0 50%" md-whiteframe="4" layout-margin>
         <order-list orders="$ctrl.orders"
                     on-selected="$ctrl.loadDetail(selectedOrderId)">
         </order-list>
     </div>
-    <div flex layout-margin layout-padding ng-if="$ctrl.order">
-        <md-divider></md-divider>
-        <order-detail order="$ctrl.order"></order-detail>
+    <div flex ng-if="$ctrl.order" md-whiteframe="4" layout-margin style="overflow:auto; flex: 1 1 auto; display:flex; flex-direction: column;">
+        <order-detail order="$ctrl.order" style="flex:1 0 auto"></order-detail>
     </div>
 </div>

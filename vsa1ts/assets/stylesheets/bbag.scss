@@ -2,30 +2,31 @@
     height: 100% !important;
 }
 
-#orderlist{
+#orderlist {
     height: 440px;
 }
 
 .page-fill {
-   height: calc(100vh - 80px);
-   overflow: auto;
+    height: calc(100vh - 80px);
+    overflow: auto;
 }
 
 @media screen and (max-width:960px) {
-   .page-fill {
-       height: calc(100vh - 56px);
-   }
+    .page-fill {
+        height: calc(100vh - 56px);
+    }
 }
 
 @media screen and (max-width:600px) {
-   .page-fill {
-       height: auto;
-   }
+    .page-fill {
+        height: auto;
+    }
 }
 
 .full-page {
     height: 100vh;
     overflow: auto;
+
     md-content {
         height: calc(100vh - 128px);
     }
@@ -33,4 +34,51 @@
 
 .sidenav-size {
     width: 320px;
+}
+
+order-list, order-detail {
+    margin: 0 !important;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    md-content {
+        background-color: white;
+    }
+}
+
+order-detail {
+    .header {
+        color: white;
+        text-shadow: 1px 1px 10px black;
+        padding-left: 8px;
+        max-height: 150px;
+        min-height: 150px;
+        background: url(../images/ship2.jpg) no-repeat center center;
+        background-size: cover;
+
+        h1 {
+            margin-bottom: 4px;
+        }
+    }
+
+    .content {
+        padding: 16px;
+        overflow-y: auto;
+        max-height: 100%;
+
+        .title {
+            font-weight: 600;
+            flex: 0 0 15%;
+        }
+
+        div div {
+            border-bottom: 1px solid rgba(black,.05);
+            margin-top: 8px;
+        }
+    }
+}
+
+.active {
+    background-color: rgba(#326aab,.2);
 }
