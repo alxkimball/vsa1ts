@@ -1,5 +1,5 @@
 ﻿<!-- Order Detail content -->
-<md-content class="md-inline-form">
+<!--<md-content class="md-inline-form">
     <div class="md-list-item-text" layout="column" layout-wrap>
         <div flex>
             <h2>Customer Name: {{$ctrl.order.shipName}}</h2>
@@ -13,8 +13,23 @@
             <h4>{{$ctrl.order.shipCity}}, {{$ctrl.order.shipCountry}}  {{$ctrl.order.shipPostalCode}}</h4>
             <h4>Freight: {{$ctrl.order.freight}}</h4>
         </div>
-
     </div>
-</md-content>
+</md-content>-->
 <!--<pre>{{$ctrl.order | json}}</pre>-->
-
+<div style="display:flex; flex-direction:column; flex:1 0 auto;">
+    <div class="header" style="display:flex; flex-direction:column">
+        <div flex></div>
+        <h1>Customer Name: {{$ctrl.order.shipName}}e</h1>
+    </div>
+    <div class="content">
+        <div flex="100">
+            <div layout="row"><span class="title">Order Date:</span> <span>{{$ctrl.order.orderDate }}</span> </div>
+            <div layout="row"><span class="title">Ship Date:</span> <span>{{$ctrl.order.shippedDate}}</span></div>
+        </div>
+        <div flex="100">
+            <div layout="row"><span class="title">Ship To:</span> <span>{{$ctrl.order.shipAddress}}</span></div>
+            <div layout="row"><span class="title"></span><span>{{$ctrl.order.shipCity}}, {{$ctrl.order.shipCountry}}  {{$ctrl.order.shipPostalCode}}</span></div>
+            <div layout="row"><span class="title">Freight:</span> <span>{{$ctrl.order.freight}}</span></div>
+        </div>
+    </div>
+</div>
