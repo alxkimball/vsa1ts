@@ -4,7 +4,6 @@
                        on-selected="$ctrl.loadCustomerId(selectedCustomerId)">
         </customer-list>
     </div>
-    <!-- use flex w/o a size on the following, this uses up the rest of the page width (because of layout=row) -->
     <div flex style="height:100vh; overflow:hidden;">
         <orders customer-id="$ctrl.customerId"></orders>
     </div>

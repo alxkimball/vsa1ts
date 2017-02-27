@@ -24,12 +24,12 @@ module orders {
         }
 
         $onInit(): void {
-            var list = this.orders;
         }
 
         $onChanges(changesObj: any): void {
             if (changesObj.orders && changesObj.orders.currentValue) {
                 this.orders = changesObj.orders.currentValue;
+                this.selectedOrderId = 0;
             }
         }
 

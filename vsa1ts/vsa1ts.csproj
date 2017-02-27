@@ -8005,6 +8005,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\customers\customer.controller.spec.ts" />
     <TypeScriptCompile Include="app\customers\customerDetail\customerDetail.component.ts" />
     <TypeScriptCompile Include="app\customers\customerList\customerList.component.ts" />
     <TypeScriptCompile Include="app\customers\customerList\customerList.controller.ts" />

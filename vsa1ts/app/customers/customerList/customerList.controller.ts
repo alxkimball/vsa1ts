@@ -24,12 +24,13 @@ module customers {
         }
 
         $onInit(): void {
-            var list = this.customers;
+            
         }
 
         $onChanges(changesObj: any): void {
             if (changesObj.customers && changesObj.customers.currentValue) {
                 this.customers = changesObj.customers.currentValue;
+                this.selectedCustomerId = '';
             }
         }
 

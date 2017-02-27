@@ -17,7 +17,7 @@
                         <md-list-item class="md-3-line"
                                       ng-repeat="customer in $ctrl.customers"
                                       ng-click="$ctrl.showOrders(customer.Id)"
-                                      ng-class="{'active':customer.id == $ctrl.selectedcustomerId}">
+                                      ng-class="{'active':customer.id == $ctrl.selectedCustomerId}">
                             <div class="md-list-item-text" layout="row" layout-wrap>
                                 <div flex="100">
                                     <h3>{{customer.CompanyName}}</h3>
