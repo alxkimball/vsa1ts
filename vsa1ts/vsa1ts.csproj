@@ -7480,6 +7480,14 @@
     <Content Include="docs\why_angular.md" />
     <Content Include="docs\why_typescript.md" />
     <Content Include="docs\_config.yml" />
+    <Content Include="node_modules\%40types\angular-mocks\package.json" />
+    <Content Include="node_modules\%40types\angular-mocks\types-metadata.json" />
+    <Content Include="node_modules\%40types\jasmine\node_modules\.bin\tsc" />
+    <Content Include="node_modules\%40types\jasmine\node_modules\.bin\tsc.cmd" />
+    <Content Include="node_modules\%40types\jasmine\node_modules\.bin\tsserver" />
+    <Content Include="node_modules\%40types\jasmine\node_modules\.bin\tsserver.cmd" />
+    <Content Include="node_modules\%40types\jasmine\package.json" />
+    <Content Include="node_modules\%40types\jasmine\types-metadata.json" />
     <None Include="node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="node_modules\node-gyp\gyp\DEPS" />
     <Content Include="node_modules\node-gyp\gyp\gyp" />
@@ -8083,7 +8091,10 @@
     <TypeScriptCompile Include="app\services\customer.service.ts" />
     <TypeScriptCompile Include="app\services\order.service.ts" />
     <TypeScriptCompile Include="app\services\services.module.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\angular-mocks\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\angular-mocks\mocks.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\angular\index.d.ts" />
+    <TypeScriptCompile Include="node_modules\%40types\jasmine\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery\index.d.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tsc\typings\mocha\mocha.d.ts" />
     <TypeScriptCompile Include="node_modules\gulp-tsc\typings\node\node.d.ts" />

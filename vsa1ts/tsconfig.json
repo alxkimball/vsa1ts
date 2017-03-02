@@ -6,9 +6,12 @@
         "typeRoots": [
             "node_modules/@types"
         ],
-        "allowJs": true,
-        "outDir": "dist"
+        "allowJs": true /*,
+        "outDir": "dist"*/
     },
+    "include": [
+        "app/**/*.ts"
+    ], 
     "exclude": [
         "node_modules",
         "dist"
