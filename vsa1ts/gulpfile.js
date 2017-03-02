@@ -1,4 +1,4 @@
-/*  /// <binding BeforeBuild='clean' />  */
+/// <binding BeforeBuild='clean' />  
 /* File: gulpfile.js */
 
 var gulp = require('gulp'),
@@ -16,6 +16,7 @@ var paths = {
 };
 
 paths.app = paths.webroot + 'app/';
+paths.dist = paths.webroot + 'dist/';
 paths.stylesheets = paths.webroot + 'assets/stylesheets/';
 paths.typescript = paths.webroot + 'typings/app/**/*.ts';
 
@@ -55,13 +56,34 @@ gulp.task('buildTS',
                 module: 'CommonJS',
                 sourcemap: true,
                 emitError: false,
-                outDir: paths.app
+                outDir: paths.app,
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
             }))
             .pipe(gulp.dest(paths.app), cb);
     });
 
 gulp.task('clean',
     function (cb) {
-        del([paths.app + "**/*.{js,map}"]);
+        console.log('paths.dist: ' + paths.dist);
+        del([
+            paths.app + "**/*.{js,map}",
+            paths.dist + "**/*.{js,map}"
+        ]);
         cb();
     });
+
+/***********************************************
+  Setup and run unit tests via karma here
+************************************************/
+// Build - Compile tests to JS for CI build
+gulp.task('BuildTests', function () {
+    gulp.src([paths.app + "**/*.spec.ts"])
+        .pipe(tsc({
+            module: "CommonJS",
+            sourcemap: true,
+            emitError: false
+        }))
+        .pipe(gulp.dest(paths.app));
+});

@@ -1,5 +1,5 @@
-// app.ts
 
+// app.ts
 ((): void => {
 
     angular.module('vendor',
