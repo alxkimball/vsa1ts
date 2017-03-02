@@ -3,10 +3,13 @@ module customers {
     'use strict';
 
     export interface ICustomersController {
+        customerId: string;
         customers: models.ICustomerModel[];
+
+        $onInit(): void;
         loadCustomers(): void;
         loadCustomerId(string): void;
-        customerId: string;
+
     }
 
     export class CustomersController implements ICustomersController {
