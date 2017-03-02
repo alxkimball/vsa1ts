@@ -11,9 +11,11 @@
     },
     "include": [
         "app/**/*.ts"
-    ], 
+    ],
     "exclude": [
         "node_modules",
-        "dist"
+        "dist",
+        "gulpfile.js",
+        "karma.conf.js"
     ]
 }

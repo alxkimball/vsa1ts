@@ -1,7 +1,8 @@
-/// <binding BeforeBuild='clean' />  
+/// <binding BeforeBuild='clean' AfterBuild='karma' />  
 /* File: gulpfile.js */
 
 var gulp = require('gulp'),
+    shell = require('gulp-shell'),
     del = require('del'),
     sass = require("gulp-sass"),
     autoprefixer = require('gulp-autoprefixer'),
@@ -51,12 +52,13 @@ gulp.task('buildCSS',
 
 gulp.task('buildTS',
     function (cb) {
+        console.log('paths.app: ' + paths.app);
+
         return gulp.src([paths.app + "**/*.ts"])
             .pipe(tsc({
                 module: 'CommonJS',
                 sourcemap: true,
                 emitError: false,
-                outDir: paths.app,
                 typeRoots: [
                     "./node_modules/@types"
                 ]
@@ -87,3 +89,11 @@ gulp.task('BuildTests', function () {
         }))
         .pipe(gulp.dest(paths.app));
 });
+
+/***********************************************
+  Karma unit tests setup
+************************************************/
+gulp.task('server', ['node', 'karma']);
+
+gulp.task('node', shell.task('node app.js'));
+gulp.task('karma', shell.task('powershell -Command "./karma.ps1"'));

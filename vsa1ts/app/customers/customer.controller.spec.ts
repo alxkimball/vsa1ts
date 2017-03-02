@@ -1,8 +1,11 @@
-﻿
+﻿/// <reference path="../../node_modules/@types/angular/index.d.ts" />
+/// <reference path="../../node_modules/@types/angular-mocks/index.d.ts" />
+/// <reference path="customers.module.ts" />
+
 module customers.tests {
     'use strict';
 
-    //window["ReSharperReporter"].prototype.jasmineDone = () => { };
+//    window["ReSharperReporter"].prototype.jasmineDone = () => { };
     
 
     describe('Controller tests', () => {
@@ -13,7 +16,7 @@ module customers.tests {
         var deferred: angular.IDeferred<{}>;
         var lookupDefer: angular.IDeferred<{}>;
         var rootScope: ng.IRootScopeService;
-        var controller: ICustomersController;
+        var controller: customers.ICustomersController;
 
         var $scope;
 
