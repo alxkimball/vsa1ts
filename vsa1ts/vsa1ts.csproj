@@ -77,6 +77,8 @@
     <Content Include="app\orders\orderList\orderList.template.html" />
     <Content Include="app\orders\orders.template.html" />
     <Content Include="assets\images\angularTypescriptLogo.png" />
+    <Content Include="assets\images\ship.jpg" />
+    <Content Include="assets\images\ship2.jpg" />
     <Content Include="assets\stylesheets\bbag.css" />
     <Content Include="node_modules\%40types\angular\package.json" />
     <Content Include="node_modules\%40types\angular\README.md" />
@@ -663,6 +665,10 @@
     <Content Include="node_modules\angular-material\modules\scss\angular-material.scss" />
     <Content Include="node_modules\angular-material\package.json" />
     <Content Include="node_modules\angular-material\README.md" />
+    <Content Include="node_modules\angular-mocks\angular-mocks.js" />
+    <Content Include="node_modules\angular-mocks\ngAnimateMock.js" />
+    <Content Include="node_modules\angular-mocks\ngMock.js" />
+    <Content Include="node_modules\angular-mocks\ngMockE2E.js" />
     <Content Include="node_modules\angular-route\angular-route.js" />
     <Content Include="node_modules\angular-route\angular-route.min.js" />
     <Content Include="node_modules\angular-route\angular-route.min.js.map" />
@@ -1211,6 +1217,7 @@
     <Content Include="node_modules\event-stream\test\split.asynct.js" />
     <Content Include="node_modules\event-stream\test\stringify.js" />
     <Content Include="node_modules\event-stream\test\writeArray.asynct.js" />
+    <Content Include="node_modules\exit\lib\exit.js" />
     <Content Include="node_modules\expand-brackets\index.js" />
     <Content Include="node_modules\expand-brackets\LICENSE" />
     <Content Include="node_modules\expand-brackets\package.json" />
@@ -2295,6 +2302,28 @@
     <Content Include="node_modules\isobject\README.md" />
     <Content Include="node_modules\isstream\isstream.js" />
     <Content Include="node_modules\isstream\test.js" />
+    <Content Include="node_modules\jasmine-core\jasmine_core.egg-info\dependency_links.txt" />
+    <Content Include="node_modules\jasmine-core\jasmine_core.egg-info\requires.txt" />
+    <Content Include="node_modules\jasmine-core\jasmine_core.egg-info\SOURCES.txt" />
+    <Content Include="node_modules\jasmine-core\jasmine_core.egg-info\top_level.txt" />
+    <Content Include="node_modules\jasmine-core\lib\console\console.js" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core.js" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core\boot.js" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core\jasmine-html.js" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core\jasmine.css" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core\jasmine.js" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core\json2.js" />
+    <Content Include="node_modules\jasmine-core\lib\jasmine-core\node_boot.js" />
+    <Content Include="node_modules\jasmine-core\requirements.txt" />
+    <Content Include="node_modules\jasmine\bin\jasmine.js" />
+    <Content Include="node_modules\jasmine\lib\command.js" />
+    <Content Include="node_modules\jasmine\lib\exit.js" />
+    <Content Include="node_modules\jasmine\lib\filters\console_spec_filter.js" />
+    <Content Include="node_modules\jasmine\lib\jasmine.js" />
+    <Content Include="node_modules\jasmine\lib\printDeprecation.js" />
+    <Content Include="node_modules\jasmine\lib\reporters\completion_reporter.js" />
+    <Content Include="node_modules\jasmine\lib\reporters\console_reporter.js" />
+    <Content Include="node_modules\jasmine\tasks\jasmine.js" />
     <Content Include="node_modules\jodid25519\index.js" />
     <Content Include="node_modules\jodid25519\lib\core.js" />
     <Content Include="node_modules\jodid25519\lib\curve255.js" />
@@ -4241,6 +4270,10 @@
     <Content Include="node_modules\path-is-inside\lib\path-is-inside.js" />
     <Content Include="node_modules\path-is-inside\LICENSE.txt" />
     <Content Include="node_modules\path-is-inside\package.json" />
+    <Content Include="node_modules\path-parse\index.js" />
+    <Content Include="node_modules\path-parse\index.min.js" />
+    <Content Include="node_modules\path-parse\test.js" />
+    <Content Include="node_modules\path-parse\test.min.js" />
     <Content Include="node_modules\path-root-regex\index.js" />
     <Content Include="node_modules\path-root-regex\LICENSE" />
     <Content Include="node_modules\path-root-regex\package.json" />
@@ -7428,6 +7461,25 @@
     <Content Include="node_modules\node-gyp\gyp\buildbot\commit_queue\cq_config.json" />
     <Content Include="node_modules\node-gyp\gyp\buildbot\commit_queue\OWNERS" />
     <Content Include="node_modules\node-gyp\gyp\buildbot\commit_queue\README" />
+    <Content Include="node_modules\angular-mocks\bower.json" />
+    <Content Include="node_modules\angular-mocks\package.json" />
+    <Content Include="node_modules\exit\LICENSE-MIT" />
+    <Content Include="node_modules\exit\package.json" />
+    <Content Include="node_modules\jasmine-core\bower.json" />
+    <Content Include="node_modules\jasmine-core\jasmine_core.egg-info\PKG-INFO" />
+    <Content Include="node_modules\jasmine-core\MANIFEST.in" />
+    <Content Include="node_modules\jasmine-core\MIT.LICENSE" />
+    <Content Include="node_modules\jasmine-core\package.json" />
+    <Content Include="node_modules\jasmine\MIT.LICENSE" />
+    <Content Include="node_modules\jasmine\package.json" />
+    <Content Include="node_modules\.yarn-integrity" />
+    <Content Include=".yarnclean" />
+    <Content Include="docs\index.md" />
+    <Content Include="docs\sources.md" />
+    <Content Include="docs\spas.md" />
+    <Content Include="docs\why_angular.md" />
+    <Content Include="docs\why_typescript.md" />
+    <Content Include="docs\_config.yml" />
     <None Include="node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="node_modules\node-gyp\gyp\DEPS" />
     <Content Include="node_modules\node-gyp\gyp\gyp" />
@@ -7964,12 +8016,14 @@
     <Content Include="node_modules\yargs\locales\zh_CN.json" />
     <Content Include="node_modules\yargs\package.json" />
     <Content Include="node_modules\yargs\README.md" />
+    <Content Include="node_modules\path-parse\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="yarn.lock" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
@@ -8001,7 +8055,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
+    <Folder Include="node_modules\jasmine-core\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />

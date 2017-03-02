@@ -4,8 +4,6 @@ module services {
     export interface ICustomerService {
         getCustomers(): ng.IPromise<models.ICustomerModel[]>;
         getCustomer(customerId: string): ng.IPromise<models.ICustomerModel>;
-        saveCustomer(customer: models.ICustomerModel): ng.IPromise<models.ICustomerModel>;
-        deleteCustomer(customer: models.ICustomerModel): ng.IPromise<models.ICustomerModel>;
     }
 
     export class CustomerService implements ICustomerService {
@@ -27,7 +25,7 @@ module services {
                 })
                 .catch((error) => {
                     var message = error;
-                    def.reject('Failed to get customers');
+                    def.reject('Failed to get customers: ' + message);
                 });
             return def.promise;
         }
@@ -37,17 +35,6 @@ module services {
             return def.promise;
         }
 
-        saveCustomer(customer: models.ICustomerModel): ng.IPromise<models.ICustomerModel>{
-            var def = this.$q.defer();
-
-            return def.promise;
-        }
-
-        deleteCustomer(customer: models.ICustomerModel): ng.IPromise<models.ICustomerModel>{
-            var def = this.$q.defer();
-
-            return def.promise;
-        }
 
     }
     angular
