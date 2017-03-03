@@ -1,7 +1,4 @@
-﻿/// <reference path="../../node_modules/@types/angular/index.d.ts" />
-/// <reference path="../../node_modules/@types/angular-mocks/index.d.ts" />
-/// <reference path="customers.module.ts" />
-
+﻿
 module customers.tests {
     'use strict';
 
@@ -14,7 +11,6 @@ module customers.tests {
 
         var $q: angular.IQService;
         var deferred: angular.IDeferred<{}>;
-        var lookupDefer: angular.IDeferred<{}>;
         var rootScope: ng.IRootScopeService;
         var controller: customers.ICustomersController;
 
@@ -22,26 +18,26 @@ module customers.tests {
 
 
              //Arrange
-            beforeEach(() => {
-                (angular as any).mock.module('customers');
+        beforeEach(() => {
 
-                inject(($controller, _$rootScope_, _$q_) => {
-                    $q = _$q_;
-                    rootScope = _$rootScope_;
-                    $scope = _$rootScope_.$new();
-                    deferred = $q.defer();
+            (angular as any).mock.module('customers');
 
-                    // Setup spies
-                    spyOn(customerServiceMock, 'getCustomers').and.returnValue(deferred.promise);
-                    lookupDefer = $q.defer();
-                    controller = $controller('CustomersController',
-                    {
-                        CustomerService: customerServiceMock
-                    });
-                    controller.$onInit();     // need to call manually in test, in practice it fires automatically
+            inject(($controller, _$rootScope_, _$q_) => {
+                $q = _$q_;
+                rootScope = _$rootScope_;
+                $scope = _$rootScope_.$new();
+                deferred = $q.defer();
+
+                // Setup spies
+                spyOn(customerServiceMock, 'getCustomers').and.returnValue(deferred.promise);
+                controller = $controller('CustomersController',
+                {
+                    CustomerService: customerServiceMock
                 });
-
+                controller.$onInit();     // need to call manually in test, in practice it fires automatically
             });
+
+        });
 
              //TEST
         it('Controller is instantiated', () => {
