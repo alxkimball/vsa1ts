@@ -54,7 +54,7 @@ module orders {
             this.orderNumber = orderId;
             this.orderService.getOrderDetail(orderId)
                 .then((results) => {
-                    this.order = this.populateOrderModel(results);
+                    this.order = this.populateOrderModel(results as models.IOrderModel);
                 }).catch(error => {
                     console.log(error);
                 });
@@ -63,19 +63,19 @@ module orders {
         populateOrderModel(results: models.IOrderModel): models.IOrderModel {
             var localOrder: models.IOrderModel = new models.OrderModel();
             
-            localOrder.id = results['Id'];
-            localOrder.customerId = results['CustomerId'];
-            localOrder.employeeId = results['EmployeeId'];
+            localOrder.id = results['Id'] as number;
+            localOrder.customerId = results['CustomerId'] as string;
+            localOrder.employeeId = results['EmployeeId'] as number;
             localOrder.orderDate = new Date(parseInt(results['OrderDate'].substr(6))).toLocaleDateString();
             localOrder.requiredDate = new Date(parseInt(results['RequiredDate'].substr(6))).toLocaleDateString();
             localOrder.shippedDate = new Date(parseInt(results['ShippedDate'].substr(6))).toLocaleDateString();
-            localOrder.shipVia = results['ShipVia'];
-            localOrder.freight = results['Freight'];
-            localOrder.shipName = results['ShipName'];
-            localOrder.shipAddress = results['ShipAddress'];
-            localOrder.shipCity = results['ShipCity'];
-            localOrder.shipPostalCode = results['ShipPostalCode'];
-            localOrder.shipCountry = results['ShipCountry'];
+            localOrder.shipVia = results['ShipVia'] as number;
+            localOrder.freight = results['Freight'] as number;
+            localOrder.shipName = results['ShipName'] as string;
+            localOrder.shipAddress = results['ShipAddress'] as string;
+            localOrder.shipCity = results['ShipCity'] as string;
+            localOrder.shipPostalCode = results['ShipPostalCode'] as string;
+            localOrder.shipCountry = results['ShipCountry'] as string;
             
             return localOrder;
         }
