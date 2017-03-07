@@ -10,7 +10,7 @@ module hello {
         constructor() {
             this.bindings = {};
             this.controller = 'HelloController';
-            this.templateUrl = '/app/hello/hello.template.html';
+            this.templateUrl = '/wwwroot/app/hello/hello.template.html';
         }
     }
 

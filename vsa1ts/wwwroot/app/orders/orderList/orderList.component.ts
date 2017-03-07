@@ -14,7 +14,7 @@ module orders {
                 onSelected: '&'
             };
             this.controller = 'OrderListController';
-            this.templateUrl = '/app/orders/orderList/orderList.template.html';
+            this.templateUrl = '/wwwroot/app/orders/orderList/orderList.template.html';
         }
     }
 

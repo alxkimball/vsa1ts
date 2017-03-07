@@ -12,7 +12,7 @@
                 customerId: '<'
             };
             this.controller = 'OrdersController';
-            this.templateUrl = '/app/orders/orders.template.html';
+            this.templateUrl = '/wwwroot/app/orders/orders.template.html';
         }
     }
 

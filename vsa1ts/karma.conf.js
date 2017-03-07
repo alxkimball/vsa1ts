@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Thu Mar 02 2017 11:54:32 GMT-0600 (Central Standard Time)
 
-var webroot = "./";    // uncomment for check-in
+var webroot = "./wwwroot/";    // uncomment for check-in
 
 
 module.exports = function(config) {
@@ -18,9 +18,9 @@ module.exports = function(config) {
 
         // list of files / patterns to load in the browser
         files: [
-            webroot + 'node_modules/angular/angular.js',
-            webroot + 'node_modules/angular-mocks/angular-mocks.js',
-            webroot + 'node_modules/angular-aria/angular-aria.js',
+            'node_modules/angular/angular.js',
+            'node_modules/angular-mocks/angular-mocks.js',
+            'node_modules/angular-aria/angular-aria.js',
             webroot + 'app/**/*.module.js',
             webroot + 'app/**/*.js',
             webroot + 'app/**/!(*.module)*.js',

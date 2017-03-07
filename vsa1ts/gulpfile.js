@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='clean' AfterBuild='karma' />  
+/// <binding BeforeBuild='clean' />
 /* File: gulpfile.js */
 
 var gulp = require('gulp'),
@@ -13,11 +13,11 @@ var env = 'dev';
 var isDeploy = env === 'deploy';
 
 var paths = {
-    webroot: isDeploy ? './dist/' : './'
+    webroot: isDeploy ? './dist/' : './wwwroot/'
 };
 
 paths.app = paths.webroot + 'app/';
-paths.dist = paths.webroot + 'dist/';
+paths.dist = './dist/';
 paths.stylesheets = paths.webroot + 'assets/stylesheets/';
 paths.typescript = paths.webroot + 'typings/app/**/*.ts';
 

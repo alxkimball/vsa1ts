@@ -14,7 +14,7 @@ module customers {
                 onSelected: '&'
             };
             this.controller = 'CustomerListController';
-            this.templateUrl = '/app/customers/customerList/customerList.template.html';
+            this.templateUrl = '/wwwroot/app/customers/customerList/customerList.template.html';
         }
     }
 
