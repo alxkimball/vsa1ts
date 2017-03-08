@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Thu Mar 02 2017 11:54:32 GMT-0600 (Central Standard Time)
 
-var webroot = "./wwwroot/";    // uncomment for check-in
+var webroot = "wwwroot/";    // uncomment for check-in
 
 
 module.exports = function(config) {
@@ -20,10 +20,9 @@ module.exports = function(config) {
         files: [
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
-            'node_modules/angular-aria/angular-aria.js',
+            webroot + 'app/app.js',
             webroot + 'app/**/*.module.js',
             webroot + 'app/**/*.js',
-            webroot + 'app/**/!(*.module)*.js',
             webroot + 'app/**/*.spec.js'
         ],
 
@@ -47,10 +46,11 @@ module.exports = function(config) {
 
 
         // notify karma of the available plugins
-        plugins: [			   
+        plugins: [
             'karma-jasmine',
+            'karma-chrome-launcher',
+            'karma-html-detailed-reporter',
             'karma-phantomjs-launcher',
-            'karma-html-detailed-reporter'
         ],
 
         // configure the HTML-Detailed-Reporter to put all results in one file    
@@ -87,6 +87,7 @@ module.exports = function(config) {
 
         // Concurrency level
         // how many browser should be started simultaneous
-        concurrency: Infinity
+        concurrency: 1
+//        concurrency: Infinity
     });
 }

@@ -7,6 +7,7 @@ module customers.tests {
 
     describe('Controller tests', () => {
 
+        var customerList: models.ICustomerModel[] = [];
         var customerServiceMock: services.ICustomerService;
 
         var $q: angular.IQService;
@@ -21,6 +22,16 @@ module customers.tests {
         beforeEach(() => {
 
             (angular as any).mock.module('customers');
+
+
+            customerServiceMock = {
+                getCustomers: () => {
+                    return $q.defer().promise;
+                },
+                getCustomer: () => {
+                    return $q.defer().promise;
+                }
+            }
 
             inject(($controller, _$rootScope_, _$q_) => {
                 $q = _$q_;
@@ -42,13 +53,26 @@ module customers.tests {
              //TEST
         it('Controller is instantiated', () => {
 
-            //Act
-
             //Assert
             expect(controller).toBeDefined();
             expect(controller).not.toBeNull();
 
         });
+
+        it('$onInit() calls getCustomers', () => {
+
+            //Act
+            deferred.resolve(customerList);
+            $scope.$apply();
+
+            //Assert
+            expect(customerServiceMock.getCustomers).toHaveBeenCalled();
+
+        });
+
+        
+
+
 
     });
 }

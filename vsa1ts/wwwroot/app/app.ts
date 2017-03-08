@@ -1,3 +1,4 @@
+/// <reference path="../../node_modules/@types/angular/index.d.ts" />
 
 // app.ts
 ((): void => {
