@@ -11,7 +11,7 @@ module customers {
         constructor() {
             this.bindings = {};
             this.controller = 'CustomersController';
-            this.templateUrl = '/app/customers/customers.template.html';
+            this.templateUrl = '/wwwroot/app/customers/customers.template.html';
         }
     }
 

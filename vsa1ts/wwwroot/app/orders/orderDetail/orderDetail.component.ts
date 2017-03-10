@@ -13,7 +13,7 @@ module orders {
                 order: '<'
             };
             this.controller = 'OrderDetailController';
-            this.templateUrl = '/app/orders/orderDetail/orderDetail.template.html';
+            this.templateUrl = '/wwwroot/app/orders/orderDetail/orderDetail.template.html';
         }
     }
 

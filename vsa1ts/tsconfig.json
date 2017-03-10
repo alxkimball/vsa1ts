@@ -10,7 +10,7 @@
         "outDir": "dist"*/
     },
     "include": [
-        "app/**/*.ts"
+        "wwwroot/app/**/*.ts"
     ],
     "exclude": [
         "node_modules",

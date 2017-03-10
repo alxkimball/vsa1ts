@@ -12,7 +12,7 @@
 
             };
             this.controller = 'CustomerDetailController';
-            this.templateUrl = '/app/customers/customerDetail/customerDetail.template.html';
+            this.templateUrl = '/wwwroot/app/customers/customerDetail/customerDetail.template.html';
         }
     }
 
