@@ -11,6 +11,7 @@ module customers {
         showOrders(customerId: string);
         selectedCustomerId: string;
         $onInit(): void;
+        $onChanges(changesObj: any): void;
     }
 
     class CustomerListController implements ICustomerListController {

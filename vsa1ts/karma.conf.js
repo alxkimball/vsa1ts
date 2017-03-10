@@ -2,6 +2,7 @@
 // Generated on Thu Mar 02 2017 11:54:32 GMT-0600 (Central Standard Time)
 
 var webroot = "wwwroot/";    // uncomment for check-in
+var testroot = "tests/";    // uncomment for check-in
 
 
 module.exports = function(config) {
@@ -23,13 +24,13 @@ module.exports = function(config) {
             webroot + 'app/app.js',
             webroot + 'app/**/*.module.js',
             webroot + 'app/**/*.js',
-            webroot + 'app/**/*.spec.js'
+            testroot + '**/*.spec.js'
         ],
 
 
         // list of files to exclude
         exclude: [
-            webroot + '**/*.ts'
+//            webroot + '**/*.ts'
         ],
 
 
@@ -39,19 +40,22 @@ module.exports = function(config) {
         },
 
 
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress','htmlDetailed'],
-
-
         // notify karma of the available plugins
         plugins: [
             'karma-jasmine',
             'karma-chrome-launcher',
-            'karma-html-detailed-reporter',
             'karma-phantomjs-launcher',
+            'karma-jasmine-html-reporter',
+            'karma-html-detailed-reporter'
         ],
+
+
+        // test results reporter to use
+        // possible values: 'dots', 'progress'
+        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+        reporters: ['kjhtml','htmlDetailed'],
+        //        reporters: ['progress','htmlDetailed'],
+
 
         // configure the HTML-Detailed-Reporter to put all results in one file    
         htmlDetailed: {
@@ -59,8 +63,7 @@ module.exports = function(config) {
         },
 
         // web server port
-        port: 15218, // from visual studio
-        //port: 9876,     // karma default
+        port: 9876,     // karma default
 
 
         // enable / disable colors in the output (reporters and logs)
@@ -83,11 +86,12 @@ module.exports = function(config) {
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
+        // leave false if you want to debug
         singleRun: false,
 
         // Concurrency level
         // how many browser should be started simultaneous
-        concurrency: 1
-//        concurrency: Infinity
+        concurrency: Infinity
+
     });
 }

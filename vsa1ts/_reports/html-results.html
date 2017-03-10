@@ -84,7 +84,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <div id="refreshToggle" class="pull-right">
-                    <span id="timestamp">15:16:37</span>
+                    <span id="timestamp">12:02:14</span>
                     <button class="btn btn-danger" id="refreshBtn">Disable Refresh</button>
                 </div>
             </div>
@@ -105,13 +105,13 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="countBox info">
-                            <h2>2</h2>
+                            <h2>8</h2>
                             Total Tests
                         </div>
                     </div>
                     <div class="col-sm-2 col-sm-offset-1">
                         <div class="countBox success">
-                            <h2>2</h2>
+                            <h2>8</h2>
                             Passed Tests
                         </div>
                     </div>
@@ -144,13 +144,49 @@
   <tr class="success">
     <td class="expand"/>
     <td class="status">Passed</td>
-    <td>Controller tests :: Controller is instantiated</td>
+    <td>Customer controller tests :: Controller is instantiated</td>
     <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
   </tr>
   <tr class="success">
     <td class="expand"/>
     <td class="status">Passed</td>
-    <td>Controller tests :: $onInit() calls getCustomers()</td>
+    <td>Customer controller tests :: $onInit() calls getCustomers</td>
+    <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
+  </tr>
+  <tr class="success">
+    <td class="expand"/>
+    <td class="status">Passed</td>
+    <td>Customer controller tests :: customerList contains three customers</td>
+    <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
+  </tr>
+  <tr class="success">
+    <td class="expand"/>
+    <td class="status">Passed</td>
+    <td>CustomerList controller tests :: controller initialization :: controller is instantiated</td>
+    <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
+  </tr>
+  <tr class="success">
+    <td class="expand"/>
+    <td class="status">Passed</td>
+    <td>CustomerList controller tests :: controller initialization :: controller retrieved data from parent</td>
+    <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
+  </tr>
+  <tr class="success">
+    <td class="expand"/>
+    <td class="status">Passed</td>
+    <td>CustomerList controller tests :: onChanges :: reloads customerList</td>
+    <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
+  </tr>
+  <tr class="success">
+    <td class="expand"/>
+    <td class="status">Passed</td>
+    <td>CustomerList controller tests :: onChanges :: clears selectedCustomerId</td>
+    <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
+  </tr>
+  <tr class="success">
+    <td class="expand"/>
+    <td class="status">Passed</td>
+    <td>CustomerList controller tests :: showOrders() calls onSelected callback with selected id</td>
     <td>Chrome 56.0.2924 (Windows 7 0.0.0)</td>
   </tr>
 </table>

@@ -5,7 +5,7 @@ module customers.tests {
 //    window["ReSharperReporter"].prototype.jasmineDone = () => { };
     
 
-    describe('Controller tests', () => {
+    describe('Customer controller tests', () => {
 
         var customerList: models.ICustomerModel[] = [];
         var customerServiceMock: services.ICustomerService;
@@ -32,6 +32,15 @@ module customers.tests {
                     return $q.defer().promise;
                 }
             }
+
+            // Setup customer list with three customers
+            customerList = [];
+            var customer1: models.ICustomerModel = new models.CustomerModel('One', 'CompanyNameOne', 'ContactNameOne');
+            var customer2 = new models.CustomerModel('Two', 'CompanyNameTwo', 'ContactNameTwo');
+            var customer3 = new models.CustomerModel('Three', 'CompanyNameThree', 'ContactNameThree');
+            customerList.push(customer1);
+            customerList.push(customer2);
+            customerList.push(customer3);
 
             inject(($controller, _$rootScope_, _$q_) => {
                 $q = _$q_;
@@ -61,18 +70,20 @@ module customers.tests {
 
         it('$onInit() calls getCustomers', () => {
 
-            //Act
-            deferred.resolve(customerList);
-            $scope.$apply();
-
             //Assert
             expect(customerServiceMock.getCustomers).toHaveBeenCalled();
 
         });
 
-        
+        it('customerList contains three customers', () => {
 
+            //Act
+            deferred.resolve(customerList);
+            $scope.$apply();
 
+            // Assert
+            expect(controller.customers.length).toBe(customerList.length);
+        });
 
     });
 }

@@ -2,22 +2,27 @@
 /* File: gulpfile.js */
 
 var gulp = require('gulp'),
+    gulpif = require('gulp-if'),
+    gulpSequence = require("gulp-sequence").use(gulp),
+    cache = require('gulp-cached'),
     shell = require('gulp-shell'),
     del = require('del'),
     sass = require("gulp-sass"),
     autoprefixer = require('gulp-autoprefixer'),
-    tsc = require('gulp-tsc');
+    tsc = require('gulp-tsc'),
+    Server = require('karma').Server;
 
 
 var env = 'dev';
 var isDeploy = env === 'deploy';
 
 var paths = {
-    webroot: isDeploy ? './dist/' : './wwwroot/'
+    webroot: isDeploy ? './dist/wwwroot/' : './wwwroot/'
 };
 
 paths.app = paths.webroot + 'app/';
-paths.dist = './dist/';
+paths.tests = 'tests/';
+paths.dist = 'dist/wwwroot/';
 paths.stylesheets = paths.webroot + 'assets/stylesheets/';
 paths.typescript = paths.webroot + 'typings/app/**/*.ts';
 
@@ -30,11 +35,111 @@ var config = {
     }
 };
 
-
 // Watch for changes in TypeScript files.  On save, compile and build JavaScript to output folders.
+/*
 gulp.task('default',
     function () {
-        return gulp.watch(paths.app + '**/*.ts', ['buildTS']);
+        return gulp.watch(paths.app + '*#1#*.ts', ['clean','build:App']);
+    });
+*/
+
+/***********************************************
+  Build scripts here
+************************************************/
+// Watch for changes in TypeScript files.  On save, clean and compile and build to App folders.
+gulp.task('default',
+    function () {
+        return gulp.watch(paths.app + '**/*.ts', ['clean','build:App']);
+    });
+
+gulp.task('build:App',
+    function (cb) {
+        console.log('Build source files to \'App\' folder');
+
+        return gulp.src([
+                paths.app + "**/*.ts"
+            ])
+            .pipe(tsc({
+                module: 'CommonJS',
+                sourcemap: true,
+                emitError: false,
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
+            }))
+            .pipe(gulp.dest(paths.app), cb);
+
+    });
+
+gulp.task('build:Dist',
+    function (cb) {
+        console.log('Build deploy files to \'dist\' folder');
+
+        return gulp.src([
+                paths.app + "**/*.ts"
+            ])
+            .pipe(tsc({
+                module: 'CommonJS',
+                sourcemap: false,
+                emitError: false,
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
+            }))
+            .pipe(gulp.dest(paths.dist), cb);
+    });
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false
+    }, done).start();
+});
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
+});
+
+// Build - Compile tests to JS for CI build
+gulp.task('build:Tests',
+    function (cb) {
+        console.log('Build unit test files in \'tests\' folder');
+
+        return gulp.src([
+                paths.tests + "**/*.spec.ts"
+            ])
+            .pipe(tsc({
+                module: 'CommonJS',
+                sourcemap: true,
+                emitError: false,
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
+            }))
+            .pipe(gulp.dest(paths.tests),cb);
+    });
+
+
+/***********************************************
+  Utility Scripts
+************************************************/
+// remove all .js and .map files, remove all Dist folders
+gulp.task('clean',
+    function (cb) {
+        console.log('Clean all compiled files');
+        del([
+            paths.app + "**/*.{js,map}",
+            paths.dist + "**/*",
+            paths.tests + "**/*.{js,map}"
+        ],cb);
     });
 
 // Compile SCSS to CSS
@@ -49,46 +154,6 @@ gulp.task('buildCSS',
             .pipe(gulp.dest(paths.stylesheets), cb);
     });
 
-
-gulp.task('buildTS',
-    function (cb) {
-        console.log('paths.app: ' + paths.app);
-
-        return gulp.src([paths.app + "**/*.ts"])
-            .pipe(tsc({
-                module: 'CommonJS',
-                sourcemap: true,
-                emitError: false,
-                typeRoots: [
-                    "./node_modules/@types"
-                ]
-            }))
-            .pipe(gulp.dest(paths.app), cb);
-    });
-
-gulp.task('clean',
-    function (cb) {
-        console.log('paths.dist: ' + paths.dist);
-        del([
-            paths.app + "**/*.{js,map}",
-            paths.dist + "**/*.{js,map}"
-        ]);
-        cb();
-    });
-
-/***********************************************
-  Setup and run unit tests via karma here
-************************************************/
-// Build - Compile tests to JS for CI build
-gulp.task('BuildTests', function () {
-    gulp.src([paths.app + "**/*.spec.ts"])
-        .pipe(tsc({
-            module: "CommonJS",
-            sourcemap: true,
-            emitError: false
-        }))
-        .pipe(gulp.dest(paths.app));
-});
 
 /***********************************************
   Karma unit tests setup

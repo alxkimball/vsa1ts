@@ -68,6 +68,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="node_modules\fork-stream\example.js" />
+    <Content Include="node_modules\fork-stream\index.js" />
+    <Content Include="node_modules\gulp-if\img\condition.svg" />
+    <Content Include="node_modules\gulp-if\img\exclude.svg" />
+    <Content Include="node_modules\gulp-if\img\glob.svg" />
+    <Content Include="node_modules\gulp-if\img\ternary.svg" />
+    <Content Include="node_modules\gulp-if\index.js" />
+    <Content Include="node_modules\gulp-match\index.js" />
+    <Content Include="node_modules\ternary-stream\img\condition.svg" />
+    <Content Include="node_modules\ternary-stream\img\ternary.svg" />
+    <Content Include="node_modules\ternary-stream\index.js" />
+    <Content Include="node_modules\ternary-stream\node_modules\merge-stream\index.js" />
     <Content Include="wwwroot\app\customers\customerList\customerList.template.html" />
     <Content Include="wwwroot\app\customers\customers.template.html" />
     <Content Include="wwwroot\app\data\customers.json" />
@@ -77,6 +89,7 @@
     <Content Include="wwwroot\app\orders\orderList\orderList.template.html" />
     <Content Include="wwwroot\app\orders\orders.template.html" />
     <Content Include="wwwroot\assets\images\angularTypescriptLogo.png" />
+    <Content Include="wwwroot\assets\images\keep-calm-and-embrace-angular.png" />
     <Content Include="wwwroot\assets\images\ship.jpg" />
     <Content Include="wwwroot\assets\images\ship2.jpg" />
     <Content Include="wwwroot\assets\stylesheets\bbag.css" />
@@ -11416,6 +11429,11 @@
     <Content Include="node_modules\gulp-shell\node_modules\async\LICENSE" />
     <Content Include="node_modules\gulp-shell\node_modules\async\package.json" />
     <Content Include="node_modules\gulp-shell\package.json" />
+    <Content Include="node_modules\gulp-if\LICENSE" />
+    <Content Include="node_modules\gulp-if\package.json" />
+    <Content Include="node_modules\gulp-match\LICENSE" />
+    <Content Include="node_modules\gulp-match\package.json" />
+    <Content Include="node_modules\fork-stream\package.json" />
     <None Include="node_modules\node-gyp\gyp\codereview.settings" />
     <Content Include="node_modules\node-gyp\gyp\DEPS" />
     <Content Include="node_modules\node-gyp\gyp\gyp" />
@@ -12114,6 +12132,10 @@
     <Content Include="node_modules\null-check\license" />
     <Content Include="node_modules\null-check\package.json" />
     <Content Include="node_modules\null-check\readme.md" />
+    <Content Include="node_modules\ternary-stream\LICENSE" />
+    <Content Include="node_modules\ternary-stream\node_modules\merge-stream\LICENSE" />
+    <Content Include="node_modules\ternary-stream\node_modules\merge-stream\package.json" />
+    <Content Include="node_modules\ternary-stream\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -12151,27 +12173,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="dist\app\customers\customerDetail\" />
-    <Folder Include="dist\app\customers\customerList\" />
-    <Folder Include="dist\app\hello\" />
-    <Folder Include="dist\app\models\" />
-    <Folder Include="dist\app\orders\orderDetail\" />
-    <Folder Include="dist\app\orders\orderList\" />
-    <Folder Include="dist\app\services\" />
-    <Folder Include="dist\customers\customerDetail\" />
-    <Folder Include="dist\customers\customerList\" />
-    <Folder Include="dist\hello\" />
-    <Folder Include="dist\models\" />
-    <Folder Include="dist\orders\orderDetail\" />
-    <Folder Include="dist\orders\orderList\" />
-    <Folder Include="dist\services\" />
+    <Folder Include="dist\" />
     <Folder Include="node_modules\jasmine-core\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="tests\customers\customerList\customerList.controller.spec.ts" />
     <TypeScriptCompile Include="wwwroot\app\app.ts" />
-    <TypeScriptCompile Include="wwwroot\app\customers\customer.controller.spec.ts" />
+    <TypeScriptCompile Include="tests\customers\customer.controller.spec.ts" />
     <TypeScriptCompile Include="wwwroot\app\customers\customerDetail\customerDetail.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\customers\customerList\customerList.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\customers\customerList\customerList.controller.ts" />
