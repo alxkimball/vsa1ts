@@ -1,21 +1,21 @@
 ﻿{
     "Framework": "jasmine",
     "References": [
-        { "Path": "/node_modules/angular/angular.js" },
-        { "Path": "/node_modules/angular/angular-mocks.js" },
-        { "Path": "/node_modules/jasmine/lib/jasmine.js" },
-        { "Path": "/node_modules/jasmine-core/lib/jasmine-core.js" },
-        { "Path": "/node_modules/@types/angular/index.d.ts" },
-        { "Path": "/node_modules/@types/angular-mocks/index.d.ts" },
+        { "Path": "node_modules/angular/angular.js" },
+        { "Path": "node_modules/angular-mocks/angular-mocks.js" },
+        { "Path": "node_modules/jasmine/lib/jasmine.js" },
+        { "Path": "node_modules/jasmine-core/lib/jasmine-core.js" },
+        { "Path": "node_modules/@types/angular/index.d.ts" },
+        { "Path": "node_modules/@types/angular-mocks/index.d.ts" },
         {
-            "Path": "./app",
+            "Path": "wwwroot/app",
             "Includes": [ "**/*.js" ],
             "Excludes": [ "**/*.spec.js" ]
         }
     ],
     "Tests": [
         {
-            "Path": "./app",
+            "Path": "tests",
             "Includes": [ "**/*.spec.js" ]
         }
 

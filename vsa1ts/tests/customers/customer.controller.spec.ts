@@ -5,8 +5,9 @@ module customers.tests {
 //    window["ReSharperReporter"].prototype.jasmineDone = () => { };
     
 
-    describe('Controller tests', () => {
+    describe('Customer controller tests', () => {
 
+        var customerList: models.ICustomerModel[] = [];
         var customerServiceMock: services.ICustomerService;
 
         var $q: angular.IQService;
@@ -21,6 +22,25 @@ module customers.tests {
         beforeEach(() => {
 
             (angular as any).mock.module('customers');
+
+
+            customerServiceMock = {
+                getCustomers: () => {
+                    return $q.defer().promise;
+                },
+                getCustomer: () => {
+                    return $q.defer().promise;
+                }
+            }
+
+            // Setup customer list with three customers
+            customerList = [];
+            var customer1: models.ICustomerModel = new models.CustomerModel('One', 'CompanyNameOne', 'ContactNameOne');
+            var customer2 = new models.CustomerModel('Two', 'CompanyNameTwo', 'ContactNameTwo');
+            var customer3 = new models.CustomerModel('Three', 'CompanyNameThree', 'ContactNameThree');
+            customerList.push(customer1);
+            customerList.push(customer2);
+            customerList.push(customer3);
 
             inject(($controller, _$rootScope_, _$q_) => {
                 $q = _$q_;
@@ -42,12 +62,27 @@ module customers.tests {
              //TEST
         it('Controller is instantiated', () => {
 
-            //Act
-
             //Assert
             expect(controller).toBeDefined();
             expect(controller).not.toBeNull();
 
+        });
+
+        it('$onInit() calls getCustomers', () => {
+
+            //Assert
+            expect(customerServiceMock.getCustomers).toHaveBeenCalled();
+
+        });
+
+        it('customerList contains three customers', () => {
+
+            //Act
+            deferred.resolve(customerList);
+            $scope.$apply();
+
+            // Assert
+            expect(controller.customers.length).toBe(customerList.length);
         });
 
     });
