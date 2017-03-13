@@ -43,7 +43,8 @@
         "karma-jasmine-html-reporter": "^0.2.2",
         "karma-phantomjs-launcher": "^1.0.2",
         "phantomjs": "^2.1.7",
-        "typescript": "^2.2.1"
+        "typescript": "^2.2.1",
+        "vinyl-paths": "^2.1.0"
     },
     "dependencies": {
         "@types/angular": "^1.6.7"

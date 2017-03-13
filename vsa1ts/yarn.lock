@@ -3295,6 +3295,12 @@ vinyl-fs@^1.0.0:
     through2 "^0.6.1"
     vinyl "^0.4.0"
 
+vinyl-paths@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vinyl-paths/-/vinyl-paths-2.1.0.tgz#00820437cba38262cef8802d840f93e3392ee44b"
+  dependencies:
+    through2 "^2.0.0"
+
 vinyl-sourcemaps-apply@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/vinyl-sourcemaps-apply/-/vinyl-sourcemaps-apply-0.2.1.tgz#ab6549d61d172c2b1b87be5c508d239c8ef87705"

@@ -61,23 +61,24 @@ module orders {
         }
 
         populateOrderModel(results: models.IOrderModel): models.IOrderModel {
-            var localOrder: models.IOrderModel = new models.OrderModel();
-            
-            localOrder.id = results['Id'] as number;
-            localOrder.customerId = results['CustomerId'] as string;
-            localOrder.employeeId = results['EmployeeId'] as number;
-            localOrder.orderDate = new Date(parseInt(results['OrderDate'].substr(6))).toLocaleDateString();
-            localOrder.requiredDate = new Date(parseInt(results['RequiredDate'].substr(6))).toLocaleDateString();
-            localOrder.shippedDate = new Date(parseInt(results['ShippedDate'].substr(6))).toLocaleDateString();
-            localOrder.shipVia = results['ShipVia'] as number;
-            localOrder.freight = results['Freight'] as number;
-            localOrder.shipName = results['ShipName'] as string;
-            localOrder.shipAddress = results['ShipAddress'] as string;
-            localOrder.shipCity = results['ShipCity'] as string;
-            localOrder.shipPostalCode = results['ShipPostalCode'] as string;
-            localOrder.shipCountry = results['ShipCountry'] as string;
-            
-            return localOrder;
+            // convert JSON dataset returned from CDN call to project model
+            return new models.OrderModel(
+                results['Id'] as number,
+                results['CustomerId'] as any,
+                results['EmployeeId'] as any,
+                new Date(parseInt(results['OrderDate'].substr(6))).toLocaleDateString(),
+                new Date(parseInt(results['RequiredDate'].substr(6))).toLocaleDateString(),
+                results['ShippedDate'] !== undefined
+                        ? new Date(parseInt(results['ShippedDate'].substr(6))).toLocaleDateString()
+                        : 'Not Shipped',
+                results['ShipVia'] as any,
+                results['Freight'] as any,
+                results['ShipName'] as any,
+                results['ShipCity'] as any,
+                results['ShipPostalCode'] as any,
+                results['ShipCountry'] as any
+            );
+
         }
     }
 

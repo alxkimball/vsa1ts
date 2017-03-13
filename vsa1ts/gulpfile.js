@@ -10,7 +10,8 @@ var gulp = require('gulp'),
     sass = require("gulp-sass"),
     autoprefixer = require('gulp-autoprefixer'),
     tsc = require('gulp-tsc'),
-    Server = require('karma').Server;
+    Server = require('karma').Server,
+    vinylPaths = require('vinyl-paths');
 
 
 var env = 'dev';
@@ -34,14 +35,6 @@ var config = {
         outputFile: 'bundle.js'
     }
 };
-
-// Watch for changes in TypeScript files.  On save, compile and build JavaScript to output folders.
-/*
-gulp.task('default',
-    function () {
-        return gulp.watch(paths.app + '*#1#*.ts', ['clean','build:App']);
-    });
-*/
 
 /***********************************************
   Build scripts here
@@ -161,4 +154,4 @@ gulp.task('buildCSS',
 gulp.task('server', ['node', 'karma']);
 
 gulp.task('node', shell.task('node app.js'));
-gulp.task('karma', shell.task('powershell -Command "./karma.ps1"'));
+gulp.task('karma', shell.task(['powershell -Command "./karma.ps1"']));
