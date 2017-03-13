@@ -23,3 +23,5 @@ This is a simple demo using static data from the famous Northwind database to di
 * Implement webpack for external modularization
 * Port to angular2 project
   * or rewrite as angular 2 project from scratch
+
+[TLC BBag](https://github.com/djmarquette/vsa1ts/blob/master/vsa1ts/docs/1.0_index.md)
