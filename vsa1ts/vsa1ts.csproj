@@ -68,6 +68,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="docs\npm_packages.png" />
+    <Content Include="docs\yarn_packages.png" />
     <Content Include="node_modules\fork-stream\example.js" />
     <Content Include="node_modules\fork-stream\index.js" />
     <Content Include="node_modules\gulp-if\img\condition.svg" />
