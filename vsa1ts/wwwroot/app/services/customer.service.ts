@@ -1,3 +1,5 @@
+/// <reference path="../../../node_modules/@types/angular/index.d.ts" />
+
 module services {
     'use strict';
 

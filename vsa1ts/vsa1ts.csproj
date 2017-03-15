@@ -11042,7 +11042,7 @@
     <Content Include="node_modules\jasmine\package.json" />
     <Content Include="node_modules\.yarn-integrity" />
     <Content Include=".yarnclean" />
-    <Content Include="docs\6.0_sources.md" />
+    <Content Include="docs\9.9_sources.md" />
     <Content Include="docs\_config.yml" />
     <Content Include="node_modules\%40types\angular-mocks\package.json" />
     <Content Include="node_modules\%40types\angular-mocks\types-metadata.json" />
@@ -12179,13 +12179,14 @@
     <Folder Include="dist\" />
     <Folder Include="node_modules\jasmine-core\.github\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="tests\services\" />
     <Folder Include="typings\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="tests\customers\customerList\customerList.controller.spec.ts" />
+    <TypeScriptCompile Include="tests\orders\orders.controller.spec.ts" />
     <TypeScriptCompile Include="wwwroot\app\app.ts" />
     <TypeScriptCompile Include="tests\customers\customer.controller.spec.ts" />
-    <TypeScriptCompile Include="wwwroot\app\customers\customerDetail\customerDetail.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\customers\customerList\customerList.component.ts" />
     <TypeScriptCompile Include="wwwroot\app\customers\customerList\customerList.controller.ts" />
     <TypeScriptCompile Include="wwwroot\app\customers\customers.component.ts" />

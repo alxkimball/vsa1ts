@@ -10,6 +10,11 @@ module orders {
         orderCount: number;
         orders: models.IOrderModel[];
         order: models.IOrderModel;
+
+        $onInit(): void;
+        $onChanges(any): void;
+        loadOrders(string): void;
+        loadDetail(number): void;
     }
 
     class OrdersController implements IOrdersController {

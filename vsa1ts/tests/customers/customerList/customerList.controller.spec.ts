@@ -20,12 +20,11 @@
             (angular as any).mock.module('customers');
 
 
-
             // Setup customer list with three customers
             customerList = [];
             var customer1: models.ICustomerModel = new models.CustomerModel('One', 'CompanyNameOne', 'ContactNameOne');
-            var customer2 = new models.CustomerModel('Two', 'CompanyNameTwo', 'ContactNameTwo');
-            var customer3 = new models.CustomerModel('Three', 'CompanyNameThree', 'ContactNameThree');
+            var customer2: models.ICustomerModel = new models.CustomerModel('Two', 'CompanyNameTwo', 'ContactNameTwo');
+            var customer3: models.ICustomerModel = new models.CustomerModel('Three', 'CompanyNameThree', 'ContactNameThree');
             customerList.push(customer1);
             customerList.push(customer2);
             customerList.push(customer3);
@@ -67,7 +66,7 @@
             
         });
 
-        describe('onChanges', () => {
+        describe('$onChanges()', () => {
 
             beforeEach(() => {
                 // new customer created and passed to list component
@@ -103,11 +102,12 @@
         it('showOrders() calls onSelected callback with selected id', () => {
 
             // Act
-            controller.showOrders(controller.customers[1].id);
+            controller.selectedCustomerId = controller.customers[1].id;
+            controller.showOrders(controller.selectedCustomerId);
 
             // Assert
             expect(controller.onSelected).toHaveBeenCalled();
-            expect(controller.onSelected).toHaveBeenCalledWith({ selectedCustomerId: controller.customers[1].id });
+            expect(controller.onSelected).toHaveBeenCalledWith({ selectedCustomerId: controller.selectedCustomerId });
         });
 
     });
