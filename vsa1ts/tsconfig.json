@@ -3,13 +3,20 @@
         "module": "commonjs",
         "target": "es5",
         "sourceMap": true,
-        "allowJs": true
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "allowJs": true /*,
+        "outDir": "dist"*/
     },
     "include": [
-        "./**/*.ts"
+        "wwwroot/app/**/*.ts",
+        "tests/**/*.ts"
     ],
     "exclude": [
         "node_modules",
-        "./app/**/index.js"
+        "dist",
+        "gulpfile.js",
+        "karma.conf.js"
     ]
 }

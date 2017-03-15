@@ -1,0 +1,88 @@
+body {
+  height: 100% !important;
+}
+
+#orderlist {
+  height: 440px;
+}
+
+.page-fill {
+  height: calc(100vh - 80px);
+  overflow: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .page-fill {
+    height: calc(100vh - 56px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .page-fill {
+    height: auto;
+  }
+}
+
+.full-page {
+  height: 100vh;
+  overflow: auto;
+}
+
+.full-page md-content {
+  height: calc(100vh - 128px);
+}
+
+.sidenav-size {
+  width: 320px;
+}
+
+order-list, order-detail {
+  margin: 0 !important;
+  background-color: white;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+order-list md-content, order-detail md-content {
+  background-color: white;
+}
+
+order-detail .header {
+  color: white;
+  text-shadow: 1px 1px 10px black;
+  padding-left: 8px;
+  max-height: 150px;
+  min-height: 150px;
+  background: url(../images/ship2.jpg) no-repeat center center;
+  background-size: cover;
+}
+
+order-detail .header h1 {
+  margin-bottom: 4px;
+}
+
+order-detail .content {
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+order-detail .content .title {
+  font-weight: 600;
+  -webkit-flex: 0 0 15%;
+  -ms-flex: 0 0 15%;
+  flex: 0 0 15%;
+}
+
+order-detail .content div div {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 8px;
+}
+
+.active {
+  background-color: rgba(50, 106, 171, 0.2);
+}

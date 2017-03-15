@@ -1,0 +1,38 @@
+<div layout="column" layout-padding align="center">
+    <md-toolbar>
+        <div flex>
+            <input type="text"
+                   autofocus
+                   align="center"
+                   ng-model="$ctrl.name"
+                   placeholder="First Name" />
+            <h1 class="md-accent">Hello {{$ctrl.name}}</h1>
+        </div>
+        <div flex>
+            <img src="./wwwroot/assets/images/angularTypescriptLogo.png" />
+        </div>
+        <div flex>
+            <md-subheader ng-class="{'md-primary':!cardExpanded}"
+                          ng-click="cardExpanded = !cardExpanded">
+                <h2>But wait!  There's more . . .</h2>
+                <div layout="column" ng-if="cardExpanded">
+                    <md-card>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">The Real Demo</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-content>
+                            <h3>
+                                For those of you who thought this took far too long for a simple 'Hello World' demo . . .
+                            </h3>
+                        </md-card-content>
+                        <md-card-actions layout="column" layout-align="start">
+                            <md-button ng-click="$ctrl.goNorthwind()">Northwind</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </md-subheader>
+</div>
+    </md-toolbar>
+</div>

@@ -1,0 +1,15 @@
+﻿<!-- List content -->
+<md-content>
+    <md-list id="orderList">
+        <md-list-item class="md-3-line"
+                      ng-repeat="order in $ctrl.orders"
+                      ng-click="$ctrl.showOrderDetail(order.Id)"
+                      ng-class="{'active':customer.id == $ctrl.selectedOrderId}">
+            <div class="md-list-item-text">
+                <h3 style="font-weight:600">Order #: {{order.Id}}</h3>
+                <h4>Customer: {{order.CustomerId}} -- Employee: {{order.EmployeeId}}</h4>
+            </div>
+            <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+    </md-list>
+</md-content>

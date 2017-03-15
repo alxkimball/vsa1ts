@@ -15,9 +15,13 @@ This is a simple demo using static data from the famous Northwind database to di
 
 ## Current Status
 * Repo created and ignore file setup
-* initial check-in of codebase
+* Customers list displayed
+* Clicking customer displays order list for that customer
+* Clicking order from list displays details about that order
 
 ## Future Tasks
 * Implement webpack for external modularization
 * Port to angular2 project
   * or rewrite as angular 2 project from scratch
+
+[TLC BBag](https://github.com/djmarquette/vsa1ts/blob/master/vsa1ts/docs/1.0_index.md)

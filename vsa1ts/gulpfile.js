@@ -1,26 +1,31 @@
-﻿/* File: gulpfile.js */
+/// <binding BeforeBuild='clean' />
+/* File: gulpfile.js */
 
 var gulp = require('gulp'),
+    gulpif = require('gulp-if'),
+    gulpSequence = require("gulp-sequence").use(gulp),
+    cache = require('gulp-cached'),
+    shell = require('gulp-shell'),
     del = require('del'),
+    sass = require("gulp-sass"),
+    autoprefixer = require('gulp-autoprefixer'),
     tsc = require('gulp-tsc'),
-    liveServer = require('live-server');
+    Server = require('karma').Server,
+    vinylPaths = require('vinyl-paths');
 
-
-//var args = process.argv.slice(2);
-//var env = args[1];
 
 var env = 'dev';
 var isDeploy = env === 'deploy';
 
 var paths = {
-    webroot: isDeploy ? './dist/' : './'
+    webroot: isDeploy ? './dist/wwwroot/' : './wwwroot/'
 };
 
 paths.app = paths.webroot + 'app/';
+paths.tests = 'tests/';
+paths.dist = 'dist/wwwroot/';
 paths.stylesheets = paths.webroot + 'assets/stylesheets/';
 paths.typescript = paths.webroot + 'typings/app/**/*.ts';
-
-console.log('paths = ' + paths);
 
 var config = {
     js: {
@@ -31,45 +36,122 @@ var config = {
     }
 };
 
-
-// Watch for changes in TypeScript files.  On save, compile and build JavaScript to output folders.
+/***********************************************
+  Build scripts here
+************************************************/
+// Watch for changes in TypeScript files.  On save, clean and compile and build to App folders.
 gulp.task('default',
     function () {
-        return gulp.watch(paths.app + '**/*.ts', paths.stylesheets + '**/*.scss', ['buildTS']);
+        return gulp.watch(paths.app + '**/*.ts', ['clean','build:App']);
     });
 
-gulp.task('buildTS',
+gulp.task('build:App',
     function (cb) {
-        return gulp.src([paths.app + "**/*.ts"])
+        console.log('Build source files to \'App\' folder');
+
+        return gulp.src([
+                paths.app + "**/*.ts"
+            ])
             .pipe(tsc({
                 module: 'CommonJS',
                 sourcemap: true,
                 emitError: false,
-                outDir: paths.app
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
             }))
             .pipe(gulp.dest(paths.app), cb);
+
     });
 
+gulp.task('build:Dist',
+    function (cb) {
+        console.log('Build deploy files to \'dist\' folder');
+
+        return gulp.src([
+                paths.app + "**/*.ts"
+            ])
+            .pipe(tsc({
+                module: 'CommonJS',
+                sourcemap: false,
+                emitError: false,
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
+            }))
+            .pipe(gulp.dest(paths.dist), cb);
+    });
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false
+    }, done).start();
+});
+
+/**
+ * Watch for file changes and re-run tests on each change
+ */
+gulp.task('tdd', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
+});
+
+// Build - Compile tests to JS for CI build
+gulp.task('build:Tests',
+    function (cb) {
+        console.log('Build unit test files in \'tests\' folder');
+
+        return gulp.src([
+                paths.tests + "**/*.spec.ts"
+            ])
+            .pipe(tsc({
+                module: 'CommonJS',
+                sourcemap: true,
+                emitError: false,
+                typeRoots: [
+                    "./node_modules/@types"
+                ]
+            }))
+            .pipe(gulp.dest(paths.tests),cb);
+    });
+
+
+/***********************************************
+  Utility Scripts
+************************************************/
+// remove all .js and .map files, remove all Dist folders
 gulp.task('clean',
     function (cb) {
-        del([paths.app + "**/*.{js,map}"]);
-        cb();
+        console.log('Clean all compiled files');
+        del([
+            paths.app + "**/*.{js,map}",
+            paths.dist + "**/*",
+            paths.tests + "**/*.{js,map}"
+        ],cb);
     });
 
-gulp.task('service_please', function(cb) {
-    
-    var params = {
-        port: 8080, // Set the server port. Defaults to 8080.
-        host: "0.0.0.0", // Set the address to bind to. Defaults to 0.0.0.0 or process.env.IP.
-        //root: "/", // Set root directory that's being served. Defaults to cwd.
-        open: true, // When false, it won't load your browser by default.
-        ignore: 'scss,my/templates', // comma-separated string for paths to ignore
-        file: "index.html", // When set, serve this file for every 404 (useful for single-page applications)
-        wait: 1000, // Waits for all changes, before reloading. Defaults to 0 sec.
-        mount: [], // Mount a directory to a route.
-        logLevel: 2, // 0 = errors only, 1 = some, 2 = lots
-        middleware: [function (req, res, next) { next(); }] // Takes an array of Connect-compatible middleware that are injected into the server middleware stack
-    };
-    liveServer.start(params);
+// Compile SCSS to CSS
+gulp.task('buildCSS',
+    function (cb) {
+        return gulp.src(paths.stylesheets + "*.scss")
+            .pipe(autoprefixer({
+                browsers: ['last 4 versions'],
+                cascade: false
+            }))
+            .pipe(sass({ outputStyle: 'expanded' }))
+            .pipe(gulp.dest(paths.stylesheets), cb);
+    });
 
-});
+
+/***********************************************
+  Karma unit tests setup
+************************************************/
+gulp.task('server', ['node', 'karma']);
+
+gulp.task('node', shell.task('node app.js'));
+gulp.task('karma', shell.task(['powershell -Command "./karma.ps1"']));

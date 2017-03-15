@@ -1,0 +1,10 @@
+﻿<div flex layout="row" ng-cloak>
+    <div class="sidenav-size">
+        <customer-list customers="$ctrl.customers"
+                       on-selected="$ctrl.loadCustomerId(selectedCustomerId)">
+        </customer-list>
+    </div>
+    <div flex style="height:100vh; overflow:hidden;">
+        <orders customer-id="$ctrl.customerId"></orders>
+    </div>
+</div>
