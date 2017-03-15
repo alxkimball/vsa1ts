@@ -1,4 +1,4 @@
-/// <binding BeforeBuild='clean' />
+/// <binding BeforeBuild='clean' AfterBuild='build:App' />
 /* File: gulpfile.js */
 
 var gulp = require('gulp'),
